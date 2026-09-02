@@ -1,0 +1,232 @@
+(kicad_symbol_lib
+  (version 20211014)
+  (generator https://github.com/uPesy/easyeda2kicad.py)
+
+  (symbol "IPC50N04S5L5R5ATMA1"
+    (in_bom yes)
+    (on_board yes)
+    (property
+      "Reference"
+      "Q"
+      (id 0)
+      (at 0 12.70 0)
+      (effects (font (size 1.27 1.27) ) )
+    )
+    (property
+      "Value"
+      "IPC50N04S5L5R5ATMA1"
+      (id 1)
+      (at 0 -12.70 0)
+      (effects (font (size 1.27 1.27) ) )
+    )
+    (property
+      "Footprint"
+      "easyeda2kicad:PG-TDSON-8-FL_L5.0-W6.0-P1.27-LS6.2-BL"
+      (id 2)
+      (at 0 -15.24 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (property
+      "Datasheet"
+      "https://www.lcsc.com/datasheet/C3288870.pdf"
+      (id 3)
+      (at 0 -17.78 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (property
+      "Manufacturer"
+      "Infineon(英飞凌)"
+      (id 4)
+      (at 0 -20.32 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (property
+      "MPN"
+      "IPC50N04S5L5R5ATMA1"
+      (id 5)
+      (at 0 -22.86 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (property
+      "LCSC Part"
+      "C3288870"
+      (id 6)
+      (at 0 -25.40 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (property
+      "ki_keywords"
+      "MOSFETs"
+      (id 8)
+      (at 0 -27.94 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (symbol "IPC50N04S5L5R5ATMA1_0_1"
+      (circle
+        (center 5.08 5.08)
+        (radius 0.25)
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (circle
+        (center 5.08 -5.08)
+        (radius 0.25)
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 0.00 1.78) (xy 2.54 1.78) (xy 2.54 2.54) (xy 5.08 2.54) (xy 5.08 0.51)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 0.00 -0.00) (xy 2.54 -0.00) (xy 2.54 -2.54) (xy 5.08 -2.54) (xy 5.08 -0.76)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 2.54 -1.78) (xy 0.00 -1.78)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy -0.51 2.29) (xy -0.51 -2.29)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 0.00 2.29) (xy 0.00 1.27)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 0.00 -0.51) (xy 0.00 0.51)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 0.00 -2.29) (xy 0.00 -1.27)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy -2.54 -0.00) (xy -0.51 -0.00)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 6.10 0.51) (xy 5.59 0.51) (xy 4.57 0.51) (xy 4.06 0.51)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 5.08 2.54) (xy 5.08 5.08)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 5.08 5.08) (xy -2.54 5.08)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 0.00 -5.08) (xy 5.08 -5.08)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 5.08 -5.08) (xy 5.08 -2.54)
+        )
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (polyline
+        (pts
+          (xy 0.00 -0.00) (xy 1.52 -0.51) (xy 1.52 0.51) (xy 0.00 -0.00)
+        )
+        (stroke (width 0) (type default))
+        (fill (type background))
+      )
+      (polyline
+        (pts
+          (xy 5.08 0.51) (xy 4.32 -0.76) (xy 5.84 -0.76) (xy 5.08 0.51)
+        )
+        (stroke (width 0) (type default))
+        (fill (type background))
+      )
+      (pin unspecified line
+        (at 0.00 -7.62 90)
+        (length 2.54)
+        (name "S" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at 5.08 7.62 270)
+        (length 2.54)
+        (name "D" (effects (font (size 1.27 1.27))))
+        (number "5" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at 2.54 -7.62 90)
+        (length 2.54)
+        (name "S" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at 2.54 7.62 270)
+        (length 2.54)
+        (name "D" (effects (font (size 1.27 1.27))))
+        (number "6" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at -2.54 7.62 270)
+        (length 2.54)
+        (name "D" (effects (font (size 1.27 1.27))))
+        (number "8" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at 0.00 7.62 270)
+        (length 2.54)
+        (name "D" (effects (font (size 1.27 1.27))))
+        (number "7" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at -5.08 -0.00 0)
+        (length 2.54)
+        (name "G" (effects (font (size 1.27 1.27))))
+        (number "4" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at 5.08 -7.62 90)
+        (length 2.54)
+        (name "S" (effects (font (size 1.27 1.27))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+)

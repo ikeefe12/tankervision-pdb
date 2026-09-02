@@ -1,0 +1,127 @@
+(kicad_symbol_lib
+  (version 20211014)
+  (generator https://github.com/uPesy/easyeda2kicad.py)
+
+  (symbol "MCP4551T-104E_MS"
+    (in_bom yes)
+    (on_board yes)
+    (property
+      "Reference"
+      "U"
+      (id 0)
+      (at 0 8.89 0)
+      (effects (font (size 1.27 1.27) ) )
+    )
+    (property
+      "Value"
+      "MCP4551T-104E/MS"
+      (id 1)
+      (at 0 -8.89 0)
+      (effects (font (size 1.27 1.27) ) )
+    )
+    (property
+      "Footprint"
+      "easyeda2kicad:MSOP-8_L3.0-W3.0-P0.65-LS4.9-BL"
+      (id 2)
+      (at 0 -11.43 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (property
+      "Datasheet"
+      "https://www.lcsc.com/datasheet/C627286.pdf"
+      (id 3)
+      (at 0 -13.97 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (property
+      "Manufacturer"
+      "MICROCHIP(美国微芯)"
+      (id 4)
+      (at 0 -16.51 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (property
+      "MPN"
+      "MCP4551T-104E/MS"
+      (id 5)
+      (at 0 -19.05 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (property
+      "LCSC Part"
+      "C627286"
+      (id 6)
+      (at 0 -21.59 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (property
+      "ki_keywords"
+      "Pre-ordered MCUs"
+      (id 8)
+      (at 0 -24.13 0)
+      (effects (font (size 1.27 1.27) ) hide)
+    )
+    (symbol "MCP4551T-104E_MS_0_1"
+      (rectangle
+        (start -10.16 6.35)
+        (end 10.16 -6.35)
+        (stroke (width 0) (type default))
+        (fill (type background))
+      )
+      (circle
+        (center -8.89 5.08)
+        (radius 0.38)
+        (stroke (width 0) (type default))
+        (fill (type none))
+      )
+      (pin unspecified line
+        (at 12.70 3.81 180)
+        (length 2.54)
+        (name "VDD" (effects (font (size 1.27 1.27))))
+        (number "8" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at 12.70 1.27 180)
+        (length 2.54)
+        (name "P0B" (effects (font (size 1.27 1.27))))
+        (number "7" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at 12.70 -1.27 180)
+        (length 2.54)
+        (name "P0W" (effects (font (size 1.27 1.27))))
+        (number "6" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at 12.70 -3.81 180)
+        (length 2.54)
+        (name "P0A" (effects (font (size 1.27 1.27))))
+        (number "5" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at -12.70 -3.81 0)
+        (length 2.54)
+        (name "VSS" (effects (font (size 1.27 1.27))))
+        (number "4" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at -12.70 -1.27 0)
+        (length 2.54)
+        (name "SDA" (effects (font (size 1.27 1.27))))
+        (number "3" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at -12.70 1.27 0)
+        (length 2.54)
+        (name "SCL" (effects (font (size 1.27 1.27))))
+        (number "2" (effects (font (size 1.27 1.27))))
+      )
+      (pin unspecified line
+        (at -12.70 3.81 0)
+        (length 2.54)
+        (name "HVC/A0" (effects (font (size 1.27 1.27))))
+        (number "1" (effects (font (size 1.27 1.27))))
+      )
+    )
+  )
+)

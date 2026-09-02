@@ -1,0 +1,34 @@
+# KiCad temporary and local files
+# Format documentation: https://kicad.org/help/file-formats/
+*.000
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.kicad_sch-bak
+*-bak
+*-bak*
+*~
+~*
+_autosave-*
+*.tmp
+*-save.pro
+*-save.kicad_pcb
+fp-info-cache
+*-cache.lib
+*.lck
+~*.lck
+\#auto_saved_files\#
+
+# Local, per-user project settings
+*.kicad_prl
+
+# KiCad archived backups
+*-backups/
+
+# Netlists and autorouter files
+*.net
+*.dsn
+*.ses
+
+# macOS
+.DS_Store

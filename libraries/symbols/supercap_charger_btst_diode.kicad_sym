@@ -1,0 +1,166 @@
+
+(kicad_symbol_lib (version 20211014) (generator kicad_symbol_editor)
+  (symbol "SMD-DIODE-SCHOTTKY-30V-200MA_SOT-23_" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (property "Reference" "D" (id 0) (at -8.8913 3.81056 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Value" "SMD-DIODE-SCHOTTKY-30V-200MA_SOT-23_" (id 1) (at 2.54183 3.81275 0)
+      (effects (font (size 1.27 1.27)) (justify bottom left))
+    )
+    (property "Footprint" "SMD-DIODE-SCHOTTKY-30V-200MA_SOT-23_:SOT-23" (id 2) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MF" "Nexperia USA" (id 4) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Description" "\n                        \n                            Diode Array 1 Pair Common Cathode Schottky 30 V 200mA (DC) Surface Mount TO-236-3, SC-59, SOT-23-3\n                        \n" (id 5) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Package" "SOT23-3 Nexperia USA Inc." (id 6) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MPN" "BAT54C-215" (id 7) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Price" "None" (id 8) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "VALUE" "30V-200MA" (id 9) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "SnapEDA_Link" "https://www.snapeda.com/parts/BAT54C,215/Nexperia/view-part/?ref=snap" (id 10) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "MP" "BAT54C,215" (id 11) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Availability" "In Stock" (id 12) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (property "Check_prices" "https://www.snapeda.com/parts/BAT54C,215/Nexperia/view-part/?ref=eda" (id 13) (at 0 0 0)
+      (effects (font (size 1.27 1.27)) (justify bottom) hide)
+    )
+    (symbol "SMD-DIODE-SCHOTTKY-30V-200MA_SOT-23__0_0"
+      (polyline
+        (pts (xy -6.35 1.27) (xy -6.35 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -6.35 0.0) (xy -6.35 -1.27)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -6.35 -1.27) (xy -3.81 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -3.81 0.0) (xy -6.35 1.27)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -2.54 2.54) (xy -3.81 2.54)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -3.81 2.54) (xy -3.81 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -3.81 0.0) (xy -3.81 -2.54)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -3.81 -2.54) (xy -5.08 -2.54)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 5.08 2.54) (xy 3.81 2.54)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 3.81 2.54) (xy 3.81 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 3.81 0.0) (xy 3.81 -2.54)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 3.81 -2.54) (xy 2.54 -2.54)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 3.81 0.0) (xy 6.35 -1.27)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 6.35 -1.27) (xy 6.35 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 6.35 0.0) (xy 6.35 1.27)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 6.35 1.27) (xy 3.81 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -8.89 3.81) (xy -8.89 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -8.89 0.0) (xy -8.89 -3.81)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -8.89 -3.81) (xy 8.89 -3.81)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 8.89 -3.81) (xy 8.89 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 8.89 0.0) (xy 8.89 3.81)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 8.89 3.81) (xy 0.0 3.81)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 0.0 3.81) (xy -8.89 3.81)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -10.16 0.0) (xy -8.89 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 0.0 5.08) (xy 0.0 3.81)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 10.16 0.0) (xy 8.89 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy -8.89 0.0) (xy -6.35 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 3.81 0.0) (xy 0.0 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 0.0 0.0) (xy -3.81 0.0)) (stroke (width 0.1524))
+      )
+      (polyline
+        (pts (xy 0.0 3.81) (xy 0.0 0.0)) (stroke (width 0.1524))
+      )
+      (circle (center 0.0 0.0) (radius 0.508)
+        (stroke (width 0.0)) (fill (type none))
+      )
+      (polyline
+        (pts (xy 8.89 0.0) (xy 6.35 0.0)) (stroke (width 0.1524))
+      )
+      (pin bidirectional line (at -12.7 0.0 0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "1"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 12.7 0.0 180.0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "2"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+      (pin bidirectional line (at 0.0 7.62 270.0) (length 2.54)
+        (name "~"
+          (effects (font (size 1.016 1.016)))
+        )
+        (number "3"
+          (effects (font (size 1.016 1.016)))
+        )
+      )
+    )
+  )
+)

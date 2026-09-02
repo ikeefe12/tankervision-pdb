@@ -1,0 +1,175 @@
+(footprint "SOT-23"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "<b>SOT23</b>")
+	(property "Reference" "REF**"
+		(at 0.317785 -2.351573 0)
+		(layer "F.SilkS")
+		(uuid "261e7b2b-7f15-4798-9fef-ced0f916838b")
+		(effects
+			(font
+				(size 0.700619 0.700619)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SOT-23"
+		(at 0.635484 2.478406 0)
+		(layer "F.Fab")
+		(uuid "b5673b03-a48c-4223-82d0-c01cd9ba33ea")
+		(effects
+			(font
+				(size 0.500384 0.500384)
+				(thickness 0.125096)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "42bc60e8-55cd-463a-8c20-6b39e56ab169")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b896e42f-43a9-4fda-9ba1-500e564f4b5f")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -1.4605 -0.635)
+		(end -1.4605 0.254)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "029852b1-0ad2-4f8f-9b92-1329772233ba")
+	)
+	(fp_line
+		(start -0.6985 -0.635)
+		(end -1.4605 -0.635)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "71e8749c-1786-4cae-a687-fe2e235c7c4a")
+	)
+	(fp_line
+		(start 1.4605 -0.635)
+		(end 0.6985 -0.635)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "5a5fb7fc-c43b-49d4-b4a6-7dbb53380a74")
+	)
+	(fp_line
+		(start 1.4605 0.254)
+		(end 1.4605 -0.635)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "07eb2798-3285-4fd7-888e-e7072a270b69")
+	)
+	(fp_poly
+		(pts
+			(xy -1.52475 -1.651) (xy 1.524 -1.651) (xy 1.524 1.65182) (xy -1.52475 1.65182)
+		)
+		(stroke
+			(width 0.01)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.CrtYd")
+		(uuid "d325dcd1-42e9-46b9-bbe0-5af58693342d")
+	)
+	(fp_poly
+		(pts
+			(xy -1.17032 0.7112) (xy -0.7112 0.7112) (xy -0.7112 1.29753) (xy -1.17032 1.29753)
+		)
+		(stroke
+			(width 0.01)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Fab")
+		(uuid "171077a7-e18b-4c98-842f-e1365922cb4a")
+	)
+	(fp_poly
+		(pts
+			(xy -0.228946 -1.2954) (xy 0.2286 -1.2954) (xy 0.2286 -0.712276) (xy -0.228946 -0.712276)
+		)
+		(stroke
+			(width 0.01)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Fab")
+		(uuid "c4ccb2ae-ed21-42eb-a2f7-4bf095b01f76")
+	)
+	(fp_poly
+		(pts
+			(xy 0.711313 0.7112) (xy 1.1684 0.7112) (xy 1.1684 1.29561) (xy 0.711313 1.29561)
+		)
+		(stroke
+			(width 0.01)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.Fab")
+		(uuid "25688a84-93eb-4b25-9310-4d7dca60def2")
+	)
+	(pad "1" smd rect
+		(at -0.889 1.016)
+		(size 1.016 1.143)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "48896956-94c6-4026-b237-7ba83252087b")
+	)
+	(pad "2" smd rect
+		(at 0.889 1.016)
+		(size 1.016 1.143)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "097205f2-2b71-44bd-bfe3-8f679de20509")
+	)
+	(pad "3" smd rect
+		(at 0 -1.016)
+		(size 1.016 1.143)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(solder_mask_margin 0.102)
+		(uuid "d8ccd4bc-621f-4d27-98bc-afeb13412a0e")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/../../libraries/3dmodels/supercap_charger_btst_diode.3dshapes/SMD-DIODE-SCHOTTKY-30V-200MA_SOT-23_.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 -0 -90)
+		)
+	)
+)

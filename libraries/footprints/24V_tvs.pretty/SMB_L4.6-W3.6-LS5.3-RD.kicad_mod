@@ -1,0 +1,226 @@
+(footprint "SMB_L4.6-W3.6-LS5.3-RD"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -4 0)
+		(layer "F.SilkS")
+		(uuid "14336cdf-cad5-4ceb-b028-35552d0cccbb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "SMB_L4.6-W3.6-LS5.3-RD"
+		(at 0 4 0)
+		(layer "F.Fab")
+		(uuid "82943696-404f-4d12-99fa-3811f26e7a6e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "5d65ffd7-3e2b-4954-a28b-3322a58dd334")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0bdcb764-c8c5-4a6a-a387-5be25ca419f7")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "LCSC Part" "C133668"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "53b8b293-9d7f-4aa0-a834-aeada7e79a2e")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -2.74 -1.89)
+		(end 2.74 -1.89)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "8e37cd15-dff3-4ba5-95fe-a84eb63ca33e")
+	)
+	(fp_line
+		(start -2.74 1.89)
+		(end 2.74 1.89)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "9064bda3-72a6-46fb-83fb-eee51f6ab39a")
+	)
+	(fp_line
+		(start -1.02 -1.89)
+		(end -1.02 1.89)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "a8c914d3-f776-4b29-a742-5e886ad15db3")
+	)
+	(fp_line
+		(start 2.74 -1.89)
+		(end 2.74 -1.3)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6cf22114-5fa7-4e9f-bf88-86dc0bee1a55")
+	)
+	(fp_line
+		(start 2.74 1.89)
+		(end 2.74 1.3)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "82c6f620-0a9e-4269-9440-19e941605875")
+	)
+	(fp_circle
+		(center -2.65 1.8)
+		(end -2.62 1.8)
+		(stroke
+			(width 0.06)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "9a598031-72cc-4284-8ec4-bf92c047321d")
+	)
+	(fp_poly
+		(pts
+			(xy -2.667508 -1.962404) (xy -2.667508 -1.248588) (xy -3.124708 -1.248588) (xy -3.124708 -1.962404)
+			(xy -2.667508 -1.962404)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "e1e35b4a-d77a-4ac0-b178-50a6dc368769")
+	)
+	(fp_poly
+		(pts
+			(xy -2.667508 1.962404) (xy -2.667508 1.248588) (xy -3.124708 1.248588) (xy -3.124708 1.962404) (xy -2.667508 1.962404)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill yes)
+		(layer "F.SilkS")
+		(uuid "898ca964-5140-4ba3-acbd-1978636974d8")
+	)
+	(fp_line
+		(start -2.3 -1.8)
+		(end 2.3 -1.8)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "74a390b7-55ee-44cb-9481-640c2ee83419")
+	)
+	(fp_line
+		(start -2.3 1.8)
+		(end -2.3 -1.8)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "ff3d3cb1-1d47-4c5f-a791-21fb44b19655")
+	)
+	(fp_line
+		(start 2.3 -1.8)
+		(end 2.3 1.8)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "828b9d97-eb84-4a2a-8d60-1750466ba667")
+	)
+	(fp_line
+		(start 2.3 1.8)
+		(end -2.3 1.8)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "6644d194-dada-4dc4-97a9-bb0b918ab64b")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "1d09b00d-ea5a-4c38-8585-55567c409bc1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at -2.36 0)
+		(size 2.047 2.192)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "860f6d49-a055-4783-9293-368c1fb56834")
+	)
+	(pad "2" smd rect
+		(at 2.36 0)
+		(size 2.047 2.192)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(uuid "1e06a0ce-6bf0-4a80-9e7b-bf3a985ac1ad")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/../../libraries/3dmodels/24V_tvs.3dshapes/SMB_L4.6-W3.6-LS5.3-RD.wrl"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
