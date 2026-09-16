@@ -1,0 +1,176 @@
+UTC 2026-09-14T19:00:34.138782+00:00 port=/dev/cu.usbmodem2101 command=test
+charger-inhibit
+adc
+status
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xa (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40378d4e
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x116c
+load:0x403c8700,len:0xc2c
+load:0x403cb700,len:0x3108
+entry 0x403c88b8
+RETAINED 0x20 input=8C/00 output=00/00 polarity=00/00 config=FF/E0
+RETAINED 0x21 input=00/00 output=00/00 polarity=00/00 config=FF/E0
+SAFE baseline: CE, boost, unbacked buck, external switches, backup, button and status LED off; real NTC, low charge current.
+TankerVision PDB board control test v1; schematic verified 2026-09-14
+INIT PASS 
+Commands: status, test, charger-inhibit, charger, backup, adc, watch, off, led-on, led-off, help
+test: boost/buck/four ports; charger commands and backup require README bench preconditions
+STATE t=134 boot IN=0x9C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2908
+COMMAND test
+BEGIN BASIC TEST: converters + four exterior switches
+PASS one input source and backed 5 V valid
+PASS reconcile all controlled outputs off
+PG_CHECK boost initial PG low expected=0 observation_ms=118
+STATE t=1148 boost initial PG low IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS boost initial PG low
+PG_CHECK buck initial PG low expected=0 observation_ms=119
+STATE t=1273 buck initial PG low IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS buck initial PG low
+PASS boost enable
+PG_CHECK boost PG rises expected=1 observation_ms=118
+STATE t=1557 boost PG rises IN=0xCC OUT=0x01 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2910
+PASS boost PG rises
+PG_CHECK charger input PG with boost on, CE off expected=1 observation_ms=119
+STATE t=1682 charger input PG with boost on, CE off IN=0xCC OUT=0x01 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2911
+PASS charger input PG with boost on, CE off
+PASS boost PG held throughout dwell
+PASS boost disable
+PG_CHECK boost PG falls expected=0 observation_ms=118
+STATE t=3324 boost PG falls IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS boost PG falls
+INFO SCC_PG may remain high: boost diode pass-through and PG independent of CE
+PASS 5 V VBUS buck enable
+PG_CHECK buck PG rises expected=1 observation_ms=118
+STATE t=3592 buck PG rises IN=0x8E OUT=0x10 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=1 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS buck PG rises
+PASS buck PG held throughout dwell
+PASS 5 V VBUS buck disable
+PG_CHECK buck PG falls expected=0 observation_ms=118
+STATE t=5234 buck PG falls IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS buck PG falls
+TEST J7 VBUS OFF -> ON -> OFF (1.5 s visible dwell)
+PG_CHECK port initial PG low expected=0 observation_ms=119
+STATE t=5359 port initial PG low IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS port initial PG low
+PASS J7 VBUS
+PG_CHECK port PG rises expected=1 observation_ms=118
+STATE t=5659 port PG rises IN=0x8C OUT=0x00 EXT=0x08 EOUT=0x02 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=1 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS port PG rises
+PASS only selected port PG high
+PASS port PG held throughout dwell
+PASS port disable accepted
+PG_CHECK port PG falls expected=0 observation_ms=118
+STATE t=7307 port PG falls IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS port PG falls
+PASS all port PG low
+TEST J8 5V VBUS OFF -> ON -> OFF (1.5 s visible dwell)
+PG_CHECK port initial PG low expected=0 observation_ms=118
+STATE t=7938 port initial PG low IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS port initial PG low
+PASS J8 5V VBUS
+PG_CHECK port PG rises expected=1 observation_ms=118
+STATE t=8493 port PG rises IN=0x9E OUT=0x10 EXT=0x10 EOUT=0x01 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=0 BUCK=1 SS=1 J7=0 J8=1 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2908
+PASS port PG rises
+PASS only selected port PG high
+PG_CHECK J8 prerequisite buck PG expected=1 observation_ms=119
+STATE t=8624 J8 prerequisite buck PG IN=0x9E OUT=0x10 EXT=0x10 EOUT=0x01 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=0 BUCK=1 SS=1 J7=0 J8=1 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS J8 prerequisite buck PG
+PASS port PG held throughout dwell
+PASS port disable accepted
+PG_CHECK port PG falls expected=0 observation_ms=118
+STATE t=10266 port PG falls IN=0x9E OUT=0x10 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=0 BUCK=1 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS port PG falls
+PASS all port PG low
+PASS J8 upstream buck off after port off
+PG_CHECK J8 upstream buck PG falls expected=0 observation_ms=118
+STATE t=10906 J8 upstream buck PG falls IN=0x9C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS J8 upstream buck PG falls
+TEST J9 VBUS SS OFF -> ON -> OFF (1.5 s visible dwell)
+PG_CHECK port initial PG low expected=0 observation_ms=119
+STATE t=11031 port initial PG low IN=0x9C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2908
+PASS port initial PG low
+PASS J9 VBUS SS
+PG_CHECK port PG rises expected=1 observation_ms=118
+STATE t=11331 port PG rises IN=0x8C OUT=0x00 EXT=0x04 EOUT=0x04 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=1 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS port PG rises
+PASS only selected port PG high
+PASS port PG held throughout dwell
+PASS port disable accepted
+PG_CHECK port PG falls expected=0 observation_ms=118
+STATE t=12979 port PG falls IN=0x9C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2908
+PASS port PG falls
+PASS all port PG low
+TEST J10 5V SS OFF -> ON -> OFF (1.5 s visible dwell)
+PG_CHECK port initial PG low expected=0 observation_ms=118
+STATE t=13610 port initial PG low IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS port initial PG low
+PASS J10 5V SS
+PG_CHECK port PG rises expected=1 observation_ms=118
+STATE t=14006 port PG rises IN=0x8C OUT=0x00 EXT=0x02 EOUT=0x08 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=1 MAIN=1 VCAP=0.000 TS_mV=2908
+PASS port PG rises
+PASS only selected port PG high
+PASS port PG held throughout dwell
+PASS port disable accepted
+PG_CHECK port PG falls expected=0 observation_ms=118
+STATE t=15654 port PG falls IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS port PG falls
+PASS all port PG low
+PASS final all-off writes/readback
+PASS final exterior PG low
+STATE t=16285 final IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS final status readable
+RESULT BASIC PASS passed=53 failed=0
+NOT TESTED: charging current, backup transfer, external load capacity, PD contract budget
+COMMAND charger-inhibit
+BEGIN CHARGER INHIBITED
+PG_CHECK charger prerequisite boost PG expected=1 observation_ms=118
+STATE t=16692 charger prerequisite boost PG IN=0xDC OUT=0x01 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2909
+PASS charger prerequisite boost PG
+PASS charger CE high register and pin readback
+PG_CHECK charger input PG with CE high expected=1 observation_ms=118
+STATE t=16832 charger input PG with CE high IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.469 TS_mV=2909
+PASS charger input PG with CE high
+STATE t=16845 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.478 TS_mV=2908
+STATE t=16957 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.589 TS_mV=2908
+STATE t=17070 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.607 TS_mV=2909
+STATE t=17183 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.607 TS_mV=2909
+STATE t=17296 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2908
+STATE t=17409 charger observing STAT (not a current measurement) IN=0xCC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.607 TS_mV=2909
+STATE t=17522 charger observing STAT (not a current measurement) IN=0xCC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2908
+STATE t=17635 charger observing STAT (not a current measurement) IN=0xCC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2909
+STATE t=17748 charger observing STAT (not a current measurement) IN=0xCC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2909
+STATE t=17861 charger observing STAT (not a current measurement) IN=0xCC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2909
+STATE t=17974 charger observing STAT (not a current measurement) IN=0xCC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2911
+STATE t=18087 charger observing STAT (not a current measurement) IN=0xCC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2909
+STATE t=18200 charger observing STAT (not a current measurement) IN=0xCC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2908
+STATE t=18313 charger observing STAT (not a current measurement) IN=0xCC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2909
+STATE t=18426 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2908
+STATE t=18539 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2909
+STATE t=18652 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2909
+STATE t=18765 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2909
+STATE t=18878 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.616 TS_mV=2909
+STATE t=18991 charger observing STAT (not a current measurement) IN=0xDC OUT=0x03 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.607 TS_mV=2909
+PASS charger CE low register and pin readback
+STATE t=19108 CE low; charger PG can stay high and STAT blink IN=0xDC OUT=0x01 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=1 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.607 TS_mV=2910
+PASS charger off status readable
+PASS charger cleanup
+RESULT CHARGER PASS; enable-pin control only; TS inhibits power conversion
+COMMAND adc
+ADC GPIO1=2909 mV
+ADC GPIO2=53 mV
+ADC GPIO3=0 mV
+ADC GPIO5=0 mV
+ADC GPIO6=0 mV
+ADC GPIO7=0 mV
+ADC GPIO8=0 mV
+ADC GPIO9=0 mV
+ADC GPIO10=0 mV
+COMMAND status
+RETAINED 0x20 input=8C/00 output=00/00 polarity=00/00 config=FF/E0
+RETAINED 0x21 input=00/00 output=00/00 polarity=00/00 config=FF/E0
+SAFE baseline: CE, boost, unbacked buck, external switches, backup, button and status LED off; real NTC, low charge current.
+STATE t=19236 requested IN=0x9C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.478 TS_mV=2908

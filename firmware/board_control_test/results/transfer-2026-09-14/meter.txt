@@ -1,0 +1,2 @@
+User confirmed connected bank maximum rating 21.6 V and authorized charging to 20.629 V target.
+At plateau, user measured 20.67 V across bank. Concurrent ESP32 ADC approximately 20.45–20.46 V.

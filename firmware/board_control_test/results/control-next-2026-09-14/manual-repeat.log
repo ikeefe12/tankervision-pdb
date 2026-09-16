@@ -1,0 +1,150 @@
+UTC 2026-09-14T20:16:20.402376+00:00 port=/dev/cu.usbmodem2101 command=control-next
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xa (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40378e4a
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x116c
+load:0x403c8700,len:0xc2c
+load:0x403cb700,len:0x3108
+entry 0x403c88b8
+RETAINED 0x20 input=8C/00 output=00/00 polarity=00/00 config=FF/E0
+RETAINED 0x21 input=00/00 output=00/00 polarity=00/00 config=FF/E0
+SAFE baseline: CE, boost, unbacked buck, external switches, backup, button and status LED off; real NTC, low charge current.
+TankerVision PDB board control test v4; schematic verified 2026-09-14
+INIT PASS 
+Commands: status, test, control-next, pd, charger-inhibit, charger, charger-deep, charger-hold, backup, adc, watch, off, led-on, led-off, help
+test: boost/buck/four ports; charger commands and backup require README bench preconditions
+STATE t=134 boot IN=0x8C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=0 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2925
+COMMAND control-next
+BEGIN CONTROL_NEXT tests=1,2,3,6 no_loads no_supercap no_current_ADC
+PASS CONTROL_CHECK suite initial cleanup
+PD BEGIN CYPD3177 read-only; SDA40 SCL41 address0x08 100kHz timeout25ms
+PD SAMPLE 0 mode=0x95 silicon=0x2004 status=0x000DA400 typeC=0x8B PDO=0x000641D6 RDO=0x4080000A
+PD CONTRACT attached=1 powerRole=sink dataRole=UFP CC=2 partnerRevisionCode=5 fixed=1 voltage_mV=20000 source_mA=4700 operating_mA=0 maximum_mA=100 object=4 mismatch=0 source_advertised_max_mW=94000
+PD IRQ GPIO39=0 INTERRUPT=0x01 falling=0 rising=0 pending=1
+PD VERSION raw_address_order=0000000000000000F406003372620045
+PD VERSION NOT VERIFIED: raw register bytes cannot establish CYPD3177 silicon firmware revision; chip date code needed
+PD SAMPLE 1 mode=0x95 silicon=0x2004 status=0x000DA400 typeC=0x8B PDO=0x000641D6 RDO=0x4080000A
+PD CONTRACT attached=1 powerRole=sink dataRole=UFP CC=2 partnerRevisionCode=5 fixed=1 voltage_mV=20000 source_mA=4700 operating_mA=0 maximum_mA=100 object=4 mismatch=0 source_advertised_max_mW=94000
+PD IRQ GPIO39=0 INTERRUPT=0x01 falling=0 rising=0 pending=1
+PD SAMPLE 2 mode=0x95 silicon=0x2004 status=0x000DA400 typeC=0x8B PDO=0x000641D6 RDO=0x4080000A
+PD CONTRACT attached=1 powerRole=sink dataRole=UFP CC=2 partnerRevisionCode=5 fixed=1 voltage_mV=20000 source_mA=4700 operating_mA=0 maximum_mA=100 object=4 mismatch=0 source_advertised_max_mW=94000
+PD IRQ GPIO39=0 INTERRUPT=0x01 falling=0 rising=0 pending=1
+PD IRQ EVENT TEST NOT RUN: no event generated or acknowledged; recorded pin level, pending status and naturally observed edges only
+PD COMMUNICATION PASS complete_samples=3 identity/repeated-data/IRQ-level checks
+PD SOURCE ADVERTISEMENT is an adapter ceiling, not a negotiated board power budget; no load current measured
+PD STATUS is also recorded raw; established-contract bit is not asserted by this diagnostic
+PD POWER_REQUEST UNVALIDATED operating_mA=0 matches grounded ISNK pins; RDO maximum_mA=100; source ceiling is not the requested allowance
+PD RDO 100mA maximum field is observed; its origin is not explained by available CYPD3177 documentation
+PD SUMMARY PARTIAL communication passed; power request not validated
+PASS CONTROL_CHECK initial all off
+PASS CONTROL_CHECK backup initially disabled
+PASS CONTROL_CHECK low charge-current profile
+PASS CONTROL_CHECK fixed TS selected and settled
+PASS CONTROL_CHECK boost enabled and PG qualified
+PASS CONTROL_CHECK charger enabled
+CONTROL_REGULATED VCAP=20.4056 IN=DC OUT=0B PG=1 STAT=1 MAIN=1
+PASS CONTROL_CHECK unloaded VCAP regulation qualified
+BACKUP_CYCLE 1
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK backup_on
+IRQ_TRANSITION name=backup_on result=PASS before_IN=DC after_IN=FC expected_IN=FC before_EXT=00 after_EXT=00 expected_EXT=00 in_fall=1 in_rise=1 ext_fall=0 ext_rise=0 GPIO42=1 VCAP=20.4148 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK backup_off
+IRQ_ACK backup_off held_low=1 released_after_read=1 IN=DC EXT=00
+PASS CONTROL_CHECK held internal interrupt clears on input read
+IRQ_TRANSITION name=backup_off result=PASS before_IN=FC after_IN=DC expected_IN=DC before_EXT=00 after_EXT=00 expected_EXT=00 in_fall=1 in_rise=1 ext_fall=0 ext_rise=0 GPIO42=0 VCAP=20.4056 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+BACKUP_CYCLE 2
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK backup_on
+IRQ_TRANSITION name=backup_on result=PASS before_IN=DC after_IN=FC expected_IN=FC before_EXT=00 after_EXT=00 expected_EXT=00 in_fall=1 in_rise=1 ext_fall=0 ext_rise=0 GPIO42=1 VCAP=20.4148 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK backup_off
+IRQ_ACK backup_off held_low=1 released_after_read=1 IN=DC EXT=00
+PASS CONTROL_CHECK held internal interrupt clears on input read
+IRQ_TRANSITION name=backup_off result=PASS before_IN=FC after_IN=DC expected_IN=DC before_EXT=00 after_EXT=00 expected_EXT=00 in_fall=1 in_rise=1 ext_fall=0 ext_rise=0 GPIO42=0 VCAP=20.4148 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+BACKUP_CYCLE 3
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK backup_on
+IRQ_TRANSITION name=backup_on result=PASS before_IN=DC after_IN=FC expected_IN=FC before_EXT=00 after_EXT=00 expected_EXT=00 in_fall=1 in_rise=1 ext_fall=0 ext_rise=0 GPIO42=1 VCAP=20.4240 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK backup_off
+IRQ_ACK backup_off held_low=1 released_after_read=1 IN=DC EXT=00
+PASS CONTROL_CHECK held internal interrupt clears on input read
+IRQ_TRANSITION name=backup_off result=PASS before_IN=FC after_IN=DC expected_IN=DC before_EXT=00 after_EXT=00 expected_EXT=00 in_fall=1 in_rise=1 ext_fall=0 ext_rise=0 GPIO42=0 VCAP=20.4148 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+RESULT BACKUP_CONTROL PASS cycles=3; main remained selected; no source-loss transfer
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK buck_on
+IRQ_TRANSITION name=buck_on result=PASS before_IN=DC after_IN=DE expected_IN=DE before_EXT=00 after_EXT=00 expected_EXT=00 in_fall=1 in_rise=1 ext_fall=0 ext_rise=0 GPIO42=0 VCAP=20.4424 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK buck_off
+IRQ_TRANSITION name=buck_off result=PASS before_IN=DE after_IN=DC expected_IN=DC before_EXT=00 after_EXT=00 expected_EXT=00 in_fall=1 in_rise=1 ext_fall=0 ext_rise=0 GPIO42=0 VCAP=20.4240 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK buck_on_for_ports
+IRQ_TRANSITION name=buck_on_for_ports result=PASS before_IN=DC after_IN=DE expected_IN=DE before_EXT=00 after_EXT=00 expected_EXT=00 in_fall=1 in_rise=1 ext_fall=0 ext_rise=0 GPIO42=0 VCAP=20.4332 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK J7_on
+IRQ_TRANSITION name=J7_on result=PASS before_IN=DE after_IN=DE expected_IN=DE before_EXT=00 after_EXT=08 expected_EXT=08 in_fall=0 in_rise=0 ext_fall=1 ext_rise=1 GPIO42=0 VCAP=20.4332 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK J7_off
+IRQ_TRANSITION name=J7_off result=PASS before_IN=DE after_IN=DE expected_IN=DE before_EXT=08 after_EXT=00 expected_EXT=00 in_fall=0 in_rise=0 ext_fall=1 ext_rise=1 GPIO42=0 VCAP=20.4240 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK J8_on
+IRQ_TRANSITION name=J8_on result=PASS before_IN=DE after_IN=DE expected_IN=DE before_EXT=00 after_EXT=10 expected_EXT=10 in_fall=0 in_rise=0 ext_fall=1 ext_rise=1 GPIO42=0 VCAP=20.4424 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK J8_off
+IRQ_TRANSITION name=J8_off result=PASS before_IN=DE after_IN=DE expected_IN=DE before_EXT=10 after_EXT=00 expected_EXT=00 in_fall=0 in_rise=0 ext_fall=1 ext_rise=1 GPIO42=0 VCAP=20.4332 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK J9_on
+IRQ_TRANSITION name=J9_on result=PASS before_IN=DE after_IN=DE expected_IN=DE before_EXT=00 after_EXT=04 expected_EXT=04 in_fall=0 in_rise=0 ext_fall=1 ext_rise=1 GPIO42=0 VCAP=20.4240 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK J9_off
+IRQ_TRANSITION name=J9_off result=PASS before_IN=DE after_IN=DE expected_IN=DE before_EXT=04 after_EXT=00 expected_EXT=00 in_fall=0 in_rise=0 ext_fall=1 ext_rise=1 GPIO42=0 VCAP=20.4240 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK J10_on
+IRQ_TRANSITION name=J10_on result=PASS before_IN=DE after_IN=DE expected_IN=DE before_EXT=00 after_EXT=02 expected_EXT=02 in_fall=0 in_rise=0 ext_fall=1 ext_rise=1 GPIO42=0 VCAP=20.4332 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK J10_off
+IRQ_TRANSITION name=J10_off result=PASS before_IN=DE after_IN=DE expected_IN=DE before_EXT=02 after_EXT=00 expected_EXT=00 in_fall=0 in_rise=0 ext_fall=1 ext_rise=1 GPIO42=0 VCAP=20.4148 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+PASS CONTROL_CHECK both IRQ lines initially released
+PASS CONTROL_CHECK buck_final_off
+IRQ_TRANSITION name=buck_final_off result=PASS before_IN=DE after_IN=DC expected_IN=DC before_EXT=00 after_EXT=00 expected_EXT=00 in_fall=1 in_rise=1 ext_fall=0 ext_rise=0 GPIO42=0 VCAP=20.4332 MAIN=1
+PASS CONTROL_CHECK PG transition and corresponding interrupt delivery
+RESULT EXPANDER_IRQ PASS internal=GPIO15 external=GPIO16
+PASS CONTROL_CHECK switching cleanup; CE and boost off
+LED_VISUAL D7: three 1.5-second ON pulses, each followed by 1.5 seconds OFF
+PASS CONTROL_CHECK D7 GPIO4 high readback
+LED_D7 ON pulse=1
+PASS CONTROL_CHECK D7 GPIO4 low readback
+LED_D7 OFF pulse=1
+PASS CONTROL_CHECK D7 GPIO4 high readback
+LED_D7 ON pulse=2
+PASS CONTROL_CHECK D7 GPIO4 low readback
+LED_D7 OFF pulse=2
+PASS CONTROL_CHECK D7 GPIO4 high readback
+LED_D7 ON pulse=3
+PASS CONTROL_CHECK D7 GPIO4 low readback
+LED_D7 OFF pulse=3
+PASS CONTROL_CHECK D7 final off
+RESULT STATUS_LED GPIO_PASS visual_confirmation=PENDING
+CONTROL_FINAL IN=8C OUT=00 EXT=00 EOUT=00 GPIO42=0 GPIO4=0 VCAP=0.0000 MAIN=1
+RESULT CONTROL_NEXT FAIL switching=PASS pd=FAIL led_gpio=PASS cleanup=PASS checks_pass=73 checks_fail=0 led_visual=PENDING

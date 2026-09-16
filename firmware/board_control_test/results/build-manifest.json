@@ -1,0 +1,18 @@
+{
+  "toolchain": {
+    "arduino_cli": "0.35.3",
+    "arduino_esp32": "3.3.3",
+    "esptool": "4.8.6"
+  },
+  "chip": "ESP32-S3 rev0.2 N8R8",
+  "mac": "68:ee:8f:58:b0:10",
+  "sha256": {
+    "BoardControl.h": "0096652c1d96ad63d2781d406b102d94d674e1bec07e946cf1353d7a32161f1f",
+    "BoardControl.cpp": "962de22a5708d8291c9b7c39100ee37cb2337f9a7f98cd9fa4934c584db327ca",
+    "TestRunner.cpp": "5f47627300d603650bab0263bd466b8fb60ed53956d7c0e0116d25f1a7f48b9c",
+    "build.sh": "0492b1a41a35d2764a48a1435f465fa6db75b6cfa93c8f378277a6ba36ebf510",
+    "build/board_control_test.ino.bin": "f68256a8ef82238301ae43f323076fa8e070984212635eb16eaddd99d484df34",
+    "build/board_control_test.ino.bootloader.bin": "c21086d82fe3ec49ad08467a489c1488d7d1558e788ba78864e8aa024106870a",
+    "build/board_control_test.ino.partitions.bin": "1d9cca96de0fe07ad7fc0648b9878ddecd9ce565e38b589ad20fea698ed4c80c"
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "v": 1,
+  "type": "telemetry",
+  "boot_id": "0E44CE37",
+  "seq": 288,
+  "uptime_ms": 197045,
+  "state": "RUNNING",
+  "reset_reason": 11,
+  "settling_remaining_ms": 0,
+  "action": "NONE",
+  "hardware_operation": 5,
+  "issue_bits": 0,
+  "issues": [],
+  "last_error": "",
+  "backup_armed": true,
+  "backup_low_voltage": false,
+  "source_budget_valid": true,
+  "source_budget_ma": 3000,
+  "charger": {
+    "enabled_expected": true,
+    "maintenance": true
+  },
+  "jetson": {
+    "port_enabled": true,
+    "responsive": true,
+    "pong_seen": true,
+    "last_pong_age_ms": 1874,
+    "ping_id": 44,
+    "on_feedback": false
+  },
+  "shutdown": null,
+  "ports": {
+    "vbus": false,
+    "5v_vbus": false,
+    "vbus_ss": true,
+    "5v_ss": false
+  },
+  "readings": {
+    "valid": true,
+    "age_ms": 83,
+    "vcap_v": 20.47,
+    "ts_mv": 1816,
+    "analog": {
+      "TS": {
+        "gpio": 1,
+        "raw": 2111,
+        "mv": 1816,
+        "estimated_a": null
+      },
+      "VCAP": {
+        "gpio": 2,
+        "raw": 2600,
+        "mv": 2225,
+        "estimated_a": null
+      },
+      "IMON_DC": {
+        "gpio": 3,
+        "raw": 0,
+        "mv": 0,
+        "estimated_a": 0.0
+      },
+      "IMON_J8": {
+        "gpio": 5,
+        "raw": 0,
+        "mv": 0,
+        "estimated_a": 0.0
+      },
+      "IMON_J7": {
+        "gpio": 6,
+        "raw": 0,
+        "mv": 0,
+        "estimated_a": 0.0
+      },
+      "IMON_J9": {
+        "gpio": 7,
+        "raw": 0,
+        "mv": 0,
+        "estimated_a": 0.0
+      },
+      "IMON_J10": {
+        "gpio": 8,
+        "raw": 0,
+        "mv": 0,
+        "estimated_a": 0.0
+      },
+      "IMON_USB": {
+        "gpio": 9,
+        "raw": 0,
+        "mv": 0,
+        "estimated_a": 0.0
+      },
+      "IMON_BACKUP": {
+        "gpio": 10,
+        "raw": 0,
+        "mv": 0,
+        "estimated_a": 0.0
+      }
+    },
+    "signals": {
+      "PG_USB": true,
+      "PG_DC": false,
+      "VCAP_PG": true,
+      "SCC_PG": true,
+      "SCC_STAT": true,
+      "24V_VBUS_PG": true,
+      "5V_VBUS_PG": false,
+      "5V_SS_PG": true,
+      "EXT_VBUS_PG": false,
+      "EXT_5V_VBUS_PG": false,
+      "EXT_SS_PG": true,
+      "EXT_5V_SS_PG": false,
+      "JET_ON_FB": false,
+      "PMUX_ST": true,
+      "VCAP_EN": true,
+      "STAT_LED": false,
+      "CTRL_IN_INT_N": true,
+      "CTRL_EXT_INT_N": true,
+      "PD_INT": false,
+      "24V_VBUS_EN": true,
+      "SCC_EN": true,
+      "SCC_ISET_SW": false,
+      "SCC_TS_SW": false,
+      "5V_VBUS_EN": false,
+      "EXT_VBUS_EN": false,
+      "EXT_5V_VBUS_EN": false,
+      "EXT_SS_EN": true,
+      "EXT_5V_SS_EN": false,
+      "JET_PWR_BTN_CTRL": false,
+      "BOOT_N": true
+    },
+    "expanders": {
+      "internal": {
+        "valid": true,
+        "age_ms": 94,
+        "input": [
+          252,
+          3
+        ],
+        "output": [
+          0,
+          3
+        ],
+        "polarity": [
+          0,
+          0
+        ],
+        "config": [
+          255,
+          224
+        ],
+        "physical_inputs": 1020
+      },
+      "external": {
+        "valid": true,
+        "age_ms": 92,
+        "input": [
+          4,
+          4
+        ],
+        "output": [
+          0,
+          4
+        ],
+        "polarity": [
+          0,
+          0
+        ],
+        "config": [
+          255,
+          224
+        ],
+        "physical_inputs": 1028
+      }
+    },
+    "edges": {
+      "internal_fall": 13,
+      "internal_rise": 14,
+      "external_fall": 1,
+      "external_rise": 1,
+      "mux_fall": 0,
+      "mux_rise": 0,
+      "pd_fall": 0,
+      "pd_rise": 0
+    },
+    "pd": {
+      "valid": true,
+      "age_ms": 0,
+      "device_mode": 149,
+      "silicon_id": 8196,
+      "status": 369664,
+      "type_c_status": 137,
+      "pdo": 410100,
+      "rdo": 1082437932,
+      "response": 2,
+      "interrupt_status": 3,
+      "attached": true,
+      "millivolts": 20000,
+      "source_ma": 5000,
+      "operating_ma": 3000,
+      "maximum_ma": 3000,
+      "versions": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        244,
+        6,
+        0,
+        51,
+        114,
+        98,
+        0,
+        69
+      ]
+    }
+  },
+  "telemetry": {
+    "generated": 200,
+    "late_periods": 0,
+    "usb_connected": true,
+    "queued": 0,
+    "dropped_messages": 50,
+    "dropped_telemetry": 42,
+    "max_loop_gap_ms": 26
+  }
+}

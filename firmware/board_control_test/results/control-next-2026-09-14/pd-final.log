@@ -1,0 +1,39 @@
+UTC 2026-09-14T20:12:28.753711+00:00 port=/dev/cu.usbmodem2101 command=pd
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xa (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40378e4a
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x116c
+load:0x403c8700,len:0xc2c
+load:0x403cb700,len:0x3108
+entry 0x403c88b8
+RETAINED 0x20 input=9C/00 output=00/00 polarity=00/00 config=FF/E0
+RETAINED 0x21 input=00/00 output=00/00 polarity=00/00 config=FF/E0
+SAFE baseline: CE, boost, unbacked buck, external switches, backup, button and status LED off; real NTC, low charge current.
+TankerVision PDB board control test v4; schematic verified 2026-09-14
+INIT PASS 
+Commands: status, test, control-next, pd, charger-inhibit, charger, charger-deep, charger-hold, backup, adc, watch, off, led-on, led-off, help
+test: boost/buck/four ports; charger commands and backup require README bench preconditions
+STATE t=134 boot IN=0x9C OUT=0x00 EXT=0x00 EOUT=0x00 USB=1 DC=0 CAP=0 SCC_PG=1 STAT=1 BOOST=0 BUCK=0 SS=1 J7=0 J8=0 J9=0 J10=0 MAIN=1 VCAP=0.000 TS_mV=2907
+COMMAND pd
+PD BEGIN CYPD3177 read-only; SDA40 SCL41 address0x08 100kHz timeout25ms
+PD SAMPLE 0 mode=0x95 silicon=0x2004 status=0x000DA400 typeC=0x8B PDO=0x000641D6 RDO=0x4080000A
+PD CONTRACT attached=1 powerRole=sink dataRole=UFP CC=2 partnerRevisionCode=5 fixed=1 voltage_mV=20000 source_mA=4700 operating_mA=0 maximum_mA=100 object=4 mismatch=0 source_advertised_max_mW=94000
+PD IRQ GPIO39=0 INTERRUPT=0x01 falling=0 rising=0 pending=1
+PD VERSION raw_address_order=0000000000000000F406003372620045
+PD VERSION NOT VERIFIED: raw register bytes cannot establish CYPD3177 silicon firmware revision; chip date code needed
+PD SAMPLE 1 mode=0x95 silicon=0x2004 status=0x000DA400 typeC=0x8B PDO=0x000641D6 RDO=0x4080000A
+PD CONTRACT attached=1 powerRole=sink dataRole=UFP CC=2 partnerRevisionCode=5 fixed=1 voltage_mV=20000 source_mA=4700 operating_mA=0 maximum_mA=100 object=4 mismatch=0 source_advertised_max_mW=94000
+PD IRQ GPIO39=0 INTERRUPT=0x01 falling=0 rising=0 pending=1
+PD SAMPLE 2 mode=0x95 silicon=0x2004 status=0x000DA400 typeC=0x8B PDO=0x000641D6 RDO=0x4080000A
+PD CONTRACT attached=1 powerRole=sink dataRole=UFP CC=2 partnerRevisionCode=5 fixed=1 voltage_mV=20000 source_mA=4700 operating_mA=0 maximum_mA=100 object=4 mismatch=0 source_advertised_max_mW=94000
+PD IRQ GPIO39=0 INTERRUPT=0x01 falling=0 rising=0 pending=1
+PD IRQ EVENT TEST NOT RUN: no event generated or acknowledged; recorded pin level, pending status and naturally observed edges only
+PD COMMUNICATION PASS complete_samples=3 identity/repeated-data/IRQ-level checks
+PD SOURCE ADVERTISEMENT is an adapter ceiling, not a negotiated board power budget; no load current measured
+PD STATUS is also recorded raw; established-contract bit is not asserted by this diagnostic
+PD POWER_REQUEST UNVALIDATED operating_mA=0 matches grounded ISNK pins; RDO maximum_mA=100; source ceiling is not the requested allowance
+PD RDO 100mA maximum field is observed; its origin is not explained by available CYPD3177 documentation
+PD SUMMARY PARTIAL communication passed; power request not validated

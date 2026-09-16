@@ -1,0 +1,36 @@
+{
+  "hardware.log": {
+    "watch_status_count": 40,
+    "first_watch_ms": 916,
+    "last_watch_ms": 20436,
+    "last_hold": {
+      "state": "HOLDING",
+      "auto_boot": "1",
+      "VCAP": "20.2400",
+      "min": "20.1664",
+      "max": "20.2400",
+      "samples": "994",
+      "max_gap_ms": "21",
+      "cleanup": "1",
+      "error": ""
+    },
+    "usb_reset_observed": true
+  },
+  "reconnect.log": {
+    "watch_status_count": 16,
+    "first_watch_ms": 907,
+    "last_watch_ms": 8419,
+    "last_hold": {
+      "state": "HOLDING",
+      "auto_boot": "1",
+      "VCAP": "20.2400",
+      "min": "20.1940",
+      "max": "20.2400",
+      "samples": "393",
+      "max_gap_ms": "28",
+      "cleanup": "1",
+      "error": ""
+    },
+    "usb_reset_observed": true
+  }
+}

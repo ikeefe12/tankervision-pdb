@@ -1,0 +1,64 @@
+{
+  "session_ids": [
+    "0B958541"
+  ],
+  "heartbeats": 716,
+  "backup_intervals_from_raw_pg": [
+    {
+      "heartbeats": 21,
+      "first_ms": 187705,
+      "last_ms": 207724,
+      "observed_continuous_span_ms": 20019,
+      "maximum_heartbeat_gap_ms": 1001,
+      "first_vcap": 20.4332,
+      "last_vcap": 20.2492,
+      "reported_states": [
+        "BACKUP"
+      ]
+    },
+    {
+      "heartbeats": 49,
+      "first_ms": 427937,
+      "last_ms": 475983,
+      "observed_continuous_span_ms": 48046,
+      "maximum_heartbeat_gap_ms": 1001,
+      "first_vcap": 19.2556,
+      "last_vcap": 18.9796,
+      "reported_states": [
+        "RETURNED"
+      ]
+    }
+  ],
+  "sequence_gaps": [],
+  "fault_lines": [],
+  "meter_v": 20.67,
+  "known_reporting_bug": "Initial firmware left state RETURNED and old duration on second backup; raw PG and uptime prove continuity. Fixed firmware uploaded afterward.",
+  "final_initial_run": {
+    "session": "0B958541",
+    "seq": "716",
+    "t": "715126",
+    "uptime_us": "715126434",
+    "state": "STOPPED",
+    "VCAP": "18.4368",
+    "TS_mV": "1884",
+    "IN": "0x8C",
+    "OUT": "0x00",
+    "EOUT": "0x00",
+    "MAIN": "1",
+    "USB": "1",
+    "DC": "0",
+    "CAP": "0",
+    "SS": "1",
+    "BOOST": "0",
+    "CHG_PG": "1",
+    "STAT": "0",
+    "EN42": "0",
+    "LED": "1",
+    "samples": "34909",
+    "max_gap_ms": "165",
+    "edges": "10",
+    "backup_ms": "20790",
+    "dropped_bytes": "0",
+    "host_utc": "2026-09-14T21:43:19.737060+00:00"
+  }
+}

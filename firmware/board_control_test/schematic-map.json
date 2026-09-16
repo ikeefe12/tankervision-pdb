@@ -1,0 +1,402 @@
+{
+  "verified_on": "2026-09-14",
+  "source": {
+    "schematic": "tankervision-pdb.kicad_sch",
+    "schematic_sha256": "fe40a02cf6cebcd3f4909c79bb2411796b1a13390b0c5edc303da37153d90239",
+    "pcb": "tankervision-pdb.kicad_pcb",
+    "pcb_sha256": "88b42dc8079ee75d50be56a2138377d0cd0d8bb0ad311b51be9ec2db7a48d808",
+    "verification": "Fresh KiCad XML export; 1366 named PCB pads match after slash-escape normalization. No new ERC/DRC run."
+  },
+  "control_i2c": {
+    "sda_gpio": 17,
+    "scl_gpio": 18
+  },
+  "pd_i2c": {
+    "sda_gpio": 40,
+    "scl_gpio": 41,
+    "address": 8,
+    "interrupt_gpio": 39
+  },
+  "expanders": {
+    "U26": {
+      "address": 32,
+      "interrupt_gpio": 15,
+      "inputs": {
+        "PG_DC": {
+          "port": 0,
+          "bit": 0,
+          "linear_bit": 0,
+          "pin": 4,
+          "active_high": true,
+          "series_resistor": "R88"
+        },
+        "5V_VBUS_PG": {
+          "port": 0,
+          "bit": 1,
+          "linear_bit": 1,
+          "pin": 5,
+          "active_high": true,
+          "series_resistor": "R90"
+        },
+        "PG_USB": {
+          "port": 0,
+          "bit": 2,
+          "linear_bit": 2,
+          "pin": 6,
+          "active_high": true,
+          "series_resistor": "R95"
+        },
+        "SCC_PG": {
+          "port": 0,
+          "bit": 3,
+          "linear_bit": 3,
+          "pin": 7,
+          "active_high": true,
+          "series_resistor": "R98"
+        },
+        "SCC_STAT": {
+          "port": 0,
+          "bit": 4,
+          "linear_bit": 4,
+          "pin": 8,
+          "active_high": true,
+          "series_resistor": "R99"
+        },
+        "VCAP_PG": {
+          "port": 0,
+          "bit": 5,
+          "linear_bit": 5,
+          "pin": 9,
+          "active_high": true,
+          "series_resistor": "R101"
+        },
+        "24V_VBUS_PG": {
+          "port": 0,
+          "bit": 6,
+          "linear_bit": 6,
+          "pin": 10,
+          "active_high": true,
+          "series_resistor": "R104"
+        },
+        "5V_SS_PG": {
+          "port": 0,
+          "bit": 7,
+          "linear_bit": 7,
+          "pin": 11,
+          "active_high": true,
+          "series_resistor": "R105"
+        }
+      },
+      "outputs": {
+        "5V_VBUS_EN": {
+          "port": 1,
+          "bit": 4,
+          "linear_bit": 12,
+          "pin": 17,
+          "active_high": true
+        },
+        "24V_VBUS_EN": {
+          "port": 1,
+          "bit": 0,
+          "linear_bit": 8,
+          "pin": 13,
+          "active_high": true
+        },
+        "SCC_EN": {
+          "port": 1,
+          "bit": 1,
+          "linear_bit": 9,
+          "pin": 14,
+          "active_high": true
+        },
+        "SCC_ISET_SW": {
+          "port": 1,
+          "bit": 2,
+          "linear_bit": 10,
+          "pin": 15,
+          "active_high": true
+        },
+        "SCC_TS_SW": {
+          "port": 1,
+          "bit": 3,
+          "linear_bit": 11,
+          "pin": 16,
+          "active_high": true
+        }
+      }
+    },
+    "U43": {
+      "address": 33,
+      "interrupt_gpio": 16,
+      "inputs": {
+        "JET_ON_FB": {
+          "port": 0,
+          "bit": 0,
+          "linear_bit": 0,
+          "pin": 4,
+          "active_high": true,
+          "series_resistor": "R146"
+        },
+        "EXT_5V_SS_PG": {
+          "port": 0,
+          "bit": 1,
+          "linear_bit": 1,
+          "pin": 5,
+          "active_high": true,
+          "series_resistor": "R151"
+        },
+        "EXT_SS_PG": {
+          "port": 0,
+          "bit": 2,
+          "linear_bit": 2,
+          "pin": 6,
+          "active_high": true,
+          "series_resistor": "R152"
+        },
+        "EXT_VBUS_PG": {
+          "port": 0,
+          "bit": 3,
+          "linear_bit": 3,
+          "pin": 7,
+          "active_high": true,
+          "series_resistor": "R154"
+        },
+        "EXT_5V_VBUS_PG": {
+          "port": 0,
+          "bit": 4,
+          "linear_bit": 4,
+          "pin": 8,
+          "active_high": true,
+          "series_resistor": "R155"
+        }
+      },
+      "outputs": {
+        "EXT_5V_SS_EN": {
+          "port": 1,
+          "bit": 3,
+          "linear_bit": 11,
+          "pin": 16,
+          "active_high": true
+        },
+        "EXT_5V_VBUS_EN": {
+          "port": 1,
+          "bit": 0,
+          "linear_bit": 8,
+          "pin": 13,
+          "active_high": true
+        },
+        "EXT_SS_EN": {
+          "port": 1,
+          "bit": 2,
+          "linear_bit": 10,
+          "pin": 15,
+          "active_high": true
+        },
+        "EXT_VBUS_EN": {
+          "port": 1,
+          "bit": 1,
+          "linear_bit": 9,
+          "pin": 14,
+          "active_high": true
+        },
+        "JET_PWR_BTN_CTRL": {
+          "port": 1,
+          "bit": 4,
+          "linear_bit": 12,
+          "pin": 17,
+          "active_high": true
+        }
+      }
+    }
+  },
+  "esp32": {
+    "CTRL_EXT_INT_N": {
+      "gpio": 16,
+      "module_pin": 9,
+      "module_net": "CTRL_EXT_INT_N"
+    },
+    "CTRL_IN_INT_N": {
+      "gpio": 15,
+      "module_pin": 8,
+      "module_net": "CTRL_IN_INT_N"
+    },
+    "CTRL_SCL": {
+      "gpio": 18,
+      "module_pin": 11,
+      "module_net": "CTRL_SCL"
+    },
+    "CTRL_SDA": {
+      "gpio": 17,
+      "module_pin": 10,
+      "module_net": "CTRL_SDA"
+    },
+    "GPIO_0": {
+      "gpio": 0,
+      "module_pin": 27,
+      "module_net": "GPIO_0"
+    },
+    "VCAP_ADC": {
+      "gpio": 2,
+      "module_pin": 38,
+      "module_net": "Net-(IC1-IO2)"
+    },
+    "PMUX_ST": {
+      "gpio": 11,
+      "module_pin": 19,
+      "module_net": "Net-(IC1-IO11)"
+    },
+    "PD_INT": {
+      "gpio": 39,
+      "module_pin": 32,
+      "module_net": "PD_INT"
+    },
+    "PD_SCL": {
+      "gpio": 41,
+      "module_pin": 34,
+      "module_net": "PD_SCL"
+    },
+    "PD_SDA": {
+      "gpio": 40,
+      "module_pin": 33,
+      "module_net": "PD_SDA"
+    },
+    "SCC_TS_ADC": {
+      "gpio": 1,
+      "module_pin": 39,
+      "module_net": "SCC_TS_ADC"
+    },
+    "STAT_LED": {
+      "gpio": 4,
+      "module_pin": 4,
+      "module_net": "STAT_LED"
+    },
+    "USB_D+": {
+      "gpio": 20,
+      "module_pin": 14,
+      "module_net": "USB_D+"
+    },
+    "USB_D-": {
+      "gpio": 19,
+      "module_pin": 13,
+      "module_net": "USB_D-"
+    },
+    "VCAP_EN": {
+      "gpio": 42,
+      "module_pin": 35,
+      "module_net": "VCAP_EN"
+    },
+    "VIMON_5V_SS": {
+      "gpio": 8,
+      "module_pin": 12,
+      "module_net": "VIMON_5V_SS"
+    },
+    "VIMON_DC": {
+      "gpio": 3,
+      "module_pin": 15,
+      "module_net": "VIMON_DC"
+    },
+    "VIMON_EXT_5V_VBUS": {
+      "gpio": 5,
+      "module_pin": 5,
+      "module_net": "VIMON_EXT_5V_VBUS"
+    },
+    "VIMON_EXT_SS": {
+      "gpio": 7,
+      "module_pin": 7,
+      "module_net": "VIMON_EXT_SS"
+    },
+    "VIMON_EXT_VBUS": {
+      "gpio": 6,
+      "module_pin": 6,
+      "module_net": "VIMON_EXT_VBUS"
+    },
+    "VIMON_SC": {
+      "gpio": 10,
+      "module_pin": 18,
+      "module_net": "VIMON_SC"
+    },
+    "VIMON_USB": {
+      "gpio": 9,
+      "module_pin": 17,
+      "module_net": "VIMON_USB"
+    }
+  },
+  "leds": {
+    "D2": {
+      "signal": "24V_VBUS_PG",
+      "driver": "Q2"
+    },
+    "D3": {
+      "signal": "5V_SS_PG",
+      "driver": "Q3"
+    },
+    "D7": {
+      "signal": "STAT_LED",
+      "driver": "Q5",
+      "gpio": 4
+    },
+    "D9": {
+      "signal": "+3V3_SS",
+      "driver": null
+    },
+    "D12": {
+      "signal": "SCC_PG",
+      "driver": "Q8"
+    },
+    "D13": {
+      "signal": "SCC_STAT",
+      "driver": "Q9"
+    },
+    "D16": {
+      "signal": "5V_VBUS_PG",
+      "driver": "Q10"
+    },
+    "D22": {
+      "signal": "PG_USB",
+      "driver": "Q12"
+    },
+    "D23": {
+      "signal": "PG_DC",
+      "driver": "Q13"
+    },
+    "D24": {
+      "signal": "VCAP_PG",
+      "driver": "Q14"
+    },
+    "D25": {
+      "signal": "PMUX_ST",
+      "high": true,
+      "driver": "U25"
+    },
+    "D29": {
+      "signal": "PMUX_ST",
+      "high": false,
+      "driver": "U25"
+    },
+    "D34": {
+      "signal": "EXT_5V_VBUS_PG",
+      "driver": "Q15"
+    },
+    "D35": {
+      "signal": "EXT_VBUS_PG",
+      "driver": "Q16"
+    },
+    "D36": {
+      "signal": "EXT_SS_PG",
+      "driver": "Q17"
+    },
+    "D37": {
+      "signal": "EXT_5V_SS_PG",
+      "driver": "Q18"
+    }
+  },
+  "constraints": [
+    "U1 backed 5V buck is self-enabled and is not software-switchable.",
+    "External J8 requires U13 5V_VBUS buck enabled and power good before enabling U36.",
+    "Boost disabled does not isolate +24V: VBUS passes through L1 and D1.",
+    "SCC_PG is charger input-valid status and does not track CE.",
+    "VCAP_EN low can remove ESP32 power when mux IN2 is active.",
+    "Expanders retain output state across ESP32-only reset.",
+    "No TS override or high charge-current selection without explicit controlled diagnostic intent."
+  ]
+}

@@ -59,7 +59,7 @@ With R40 = 10 mΩ and `I_CHG = V_ISET/(20 × R40)`:
 | 0 | R41 150 kΩ / R45 10 kΩ | 0.206 V | 1.03 A |
 | 1 | R42 150 kΩ / R46 20 kΩ | 0.388 V | 1.94 A |
 
-R79 holds IN low while U26.P12 is high impedance, so the hardware default is the
+R116 holds IN low while U26.P12 is high impedance, so the hardware default is the
 lower current. Switch resistance is negligible relative to the divider resistors;
 include leakage and resistor/reference tolerance in final current limits.
 

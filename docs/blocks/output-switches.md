@@ -11,13 +11,17 @@ All four are instances of the
 
 | Port | Switch | Rail → connector | Backed? | EN / PG / IMON |
 |---|---|---|:---:|---|
-| VBUS | U35 | `+VBUS` → J7 `VBUS_OUT` | no | U43.P11 / U43.P00 via U45 / IO6 |
-| 5 V VBUS | U36 | `+5V_VBUS` → J8 `+5V_VBUS_OUT` | no | U43.P10 / U43.P01 via U44 / IO5 |
+| VBUS | U35 | `+VBUS` → J7 `VBUS_OUT` | no | U43.P11 / U43.P03 via U45 / IO6 |
+| 5 V VBUS | U36 | `+5V_VBUS` → J8 `+5V_VBUS_OUT` | no | U43.P10 / U43.P04 via U44 / IO5 |
 | SS | U37 | `+VBUS_SS` → J9 `+VBUS_SS_OUT` | yes | U43.P12 / U43.P02 via U46 / IO7 |
-| 5 V SS | U38 | `+5V_SS` → J10 `+5V_SS_OUT` | yes | U43.P13 / U43.P03 via U47 / IO8 |
+| 5 V SS | U38 | `+5V_SS` → J10 `+5V_SS_OUT` | yes | U43.P13 / U43.P01 via U47 / IO8 |
 
 The 20 V ports use TVS2200; the 5 V ports use TVS0500. D30–D33 clamp negative
 output excursions. LEDs D35/D34/D36/D37 show VBUS/5 V VBUS/SS/5 V SS power-good.
+
+J8 requires U13 to be enabled first through U26.P14 `5V_VBUS_EN`. Wait for
+U26.P01 `5V_VBUS_PG` before enabling U36, then verify U43.P04
+`EXT_5V_VBUS_PG`. Disable U36 before stopping its upstream buck.
 
 Both 20 V ports use 22.84/20.75 V OVLO and an approximately 47 ms ramp. U35 uses
 17.07/15.51 V PGTH on the unbacked VBUS port; U37 uses 9.91/9.00 V PGTH so the

@@ -11,8 +11,9 @@ The former `VBUS_ADC` channel has been removed and ESP32 IO4 is now `STAT_LED`.
 ```text
 +VCAP ─ R195 82 kΩ ─┬─ R196 2.2 kΩ ─ U9 NO
                     └─ R198 10 kΩ ─ GND
-VCAP_ADC ─ C50 100 nF ─ GND
-U9 COM ─ ESP32 IO2; U9 IN and V+ ─ +3V3_SS; U9 NC ─ GND
+U9 COM ─┬─ ESP32 IO2
+        └─ C50 100 nF ─ GND
+U9 IN and V+ ─ +3V3_SS; U9 NC ─ GND
 ```
 
 The divider scale is `10/(82+10)`, or input ÷9.2. It gives approximately 2.24 V
@@ -24,6 +25,12 @@ U9 TS5A3159 is powered by `+3V3_SS` and its IN pin is tied high. While powered i
 connects the divider to IO2; while unpowered its powered-off protection makes the
 signal path high impedance, preventing a charged bank from back-powering the
 ESP32. R196 limits residual transient/clamp current.
+
+During the 2026-09-14 unloaded charger hold, the user measured **20.67 V** with a
+multimeter while the nominally scaled ESP32 estimate was approximately **20.23 V**.
+The measurement path reads about **0.44 V / 2.1% low** at this operating point.
+ADC/divider calibration remains outstanding; no correction was applied from this
+single comparison. See the [meter hold report](../../firmware/board_control_test/results/hold-2026-09-14/README.md).
 
 ## LM73100 IMON channels
 

@@ -60,8 +60,13 @@ configuration control that prevents DC from driving an unpowered U8.
    lower-to-higher-voltage transfer can remain in active current limiting for longer.
 4. U30 conditions U19 ST into `PMUX_ST`: high means IN1 or output Hi-Z; low means
    IN2. It reaches ESP32 IO11 through R44 and selects source LEDs through U25.
-5. During backup, firmware sheds loads, pulses the Jetson button through U43.P14,
-   watches `JET_ON_FB`, and uses `VCAP_ADC` for the shutdown-energy decision.
+5. The [deployment firmware](../firmware/deployment/README.md) requests graceful
+   Jetson shutdown over USB and grants a fixed 60 seconds before defaulting the
+   expanders and releasing backup. Main return cannot cancel this sequence.
+   Unbacked outputs are latched off on main loss; backed outputs stay available
+   through the allowance. `JET_ON_FB` and `VCAP_ADC` remain telemetry inputs.
+   U43.P14 provides a hardware button actuator, but this firmware uses the
+   [USB API](../firmware/deployment/API.md) for shutdown coordination.
 
 Only `_SS` rails survive input loss. The charger, boost, `+5V_VBUS`, and
 `+3V3_VBUS` correctly disappear with `+VBUS`.
@@ -78,9 +83,9 @@ Only `_SS` rails survive input loss. The charger, boost, `+5V_VBUS`, and
 | `VCAP_EN` | ESP32 IO42 → U24 EN | direct backup-path arm; R38 default-low |
 | internal status ×8 | comparators → U26.P00–P07 | USB/DC/VCAP/charger/boost/buck status |
 | external enables ×4 | U43.P10/P11/P12/P13 → U36/U35/U37/U38 | output-port enables |
-| external status ×4 | U45/U44/U46/U47 → U43.P00/P01/P02/P03 | output-port power good |
+| external status ×4 | U45/U44/U46/U47 → U43.P03/P04/P02/P01 | output-port power good |
 | `JET_PWR_BTN_CTRL` | U43.P14 → Q11 | Jetson button actuator |
-| `JET_ON_FB` | J5 → U43.P04 | Jetson state input |
+| `JET_ON_FB` | J5 → U43.P00 | Jetson state input |
 | `PMUX_ST` | U30 → R44 → IO11 | mux source status |
 | `PD_INT` | U8 → IO39 | PD-controller interrupt |
 | `CTRL_IN_INT_N`, `CTRL_EXT_INT_N` | U26/U43 → IO15/IO16 | expander interrupts |
@@ -88,6 +93,12 @@ Only `_SS` rails survive input loss. The charger, boost, `+5V_VBUS`, and
 TCA9535 ports power up as inputs, and the external pulldowns make enables low after
 a full board power cycle. Neither expander has a reset pin, so an ESP32-only reset
 does not necessarily return existing outputs to safe defaults.
+
+The schematic-verified U26 Port 0 order, P00 through P07, is `PG_DC`,
+`5V_VBUS_PG`, `PG_USB`, `SCC_PG`, `SCC_STAT`, `VCAP_PG`, `24V_VBUS_PG`,
+`5V_SS_PG`. U43 P00 through P04 are `JET_ON_FB`, `EXT_5V_SS_PG`, `EXT_SS_PG`,
+`EXT_VBUS_PG`, `EXT_5V_VBUS_PG`. These correct the earlier documentation; see
+[io-expanders.md](blocks/io-expanders.md) for the complete pin tables.
 
 ## I²C buses
 

@@ -1,0 +1,26 @@
+{
+  "toolchain": {
+    "arduino_cli": "0.35.3",
+    "arduino_esp32": "3.3.3",
+    "esptool": "4.8.6"
+  },
+  "chip": "ESP32-S3 rev0.2 N8R8",
+  "mac": "68:ee:8f:58:b0:10",
+  "sha256": {
+    "BoardControl.h": "8ee3be943cac05a6c2ff3f0ce0d6564a491c1c30ece21296d04265ef1a0147f2",
+    "BoardControl.cpp": "db456eaea8d02144ed5e975a5dbddc3a6442937f4702d2f1a10d9844f7450971",
+    "ChargerCharacterization.h": "01833f06fa3c3fa1999a93b1fd56cf7c90dfee804028edb0234dc15a8c4ad827",
+    "ChargerCharacterization.cpp": "3f978ad428867a1f2be2581517c5653b343a8bd614d372cee958fb72f2fd9b53",
+    "ChargerHold.h": "fd531f5e5fca2f03a26520e4c65f4c209512db4d53d84a861ab8ef9850b21a95",
+    "ChargerHold.cpp": "e1f77f57cc85eef4bf63f57390fc385ea04706d0010adad66fafa39d74c6d4cc",
+    "TestRunner.cpp": "3177beec1122dcb89688e079a7c8de34b60e720e90bfd3ff20e84387ec9f9c46",
+    "build.sh": "0492b1a41a35d2764a48a1435f465fa6db75b6cfa93c8f378277a6ba36ebf510",
+    "build-hold.sh": "f2406e1ac8a5a09676114489be04095e36f9ca95b604dc0ba367adf2d0f5b417",
+    "build/board_control_test.ino.bin": "bf263f5622c01fb5ab3a8d164469cb2db640724bafdbee989c0b012b33a22bd8",
+    "build/board_control_test.ino.bootloader.bin": "c21086d82fe3ec49ad08467a489c1488d7d1558e788ba78864e8aa024106870a",
+    "build/board_control_test.ino.partitions.bin": "1d9cca96de0fe07ad7fc0648b9878ddecd9ce565e38b589ad20fea698ed4c80c"
+  },
+  "built_at_utc": "2026-09-14T19:40:11.345717+00:00",
+  "mode": "Unloaded VCAP hold, auto-start each boot, no duration limit",
+  "compiler_cpp_extra_flags": "-DPDB_CHARGER_HOLD_ON_BOOT=1"
+}

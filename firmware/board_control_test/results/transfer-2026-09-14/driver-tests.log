@@ -1,0 +1,30 @@
+PASS missing U43 disables retained CE
+PASS missing U26 disables retained exterior outputs
+PASS stuck CE preserves boost/profile
+PASS retained input polarity reconciliation
+PASS schematic input one-hot mapping
+PASS J8 buck prerequisite and shutdown guard
+PASS missing buck PG prevents J8 activation
+PASS CE-before-boost shutdown with decay delay
+PASS intentional cutoff releases backup while ordinary cleanup preserves it
+PASS intentional cutoff works without begin or after failed initialization
+PASS intentional cutoff detects a stuck physical backup enable
+PASS power-loss charging shutdown works despite missing U43 and preserves backup/loads
+PASS unknown U26 state causes no enable writes during power-loss cleanup
+PASS power-loss cleanup preserves boost/profile if CE latch or pin remains high
+PASS power-loss cleanup handles polarity and unrelated internal pin faults
+PASS thermistor override on/off readback preserves other outputs
+PASS thermistor selection refused while CE high
+PASS thermistor selection waits for CE decay
+PASS thermistor selection waits for TS-in/TS-out deglitch before CE
+PASS thermistor config/latch/physical pin fault detection
+PASS allOff restores real NTC after CE decay
+PASS begin clears retained bypass after CE decay
+PASS hold qualifies regulation and remains on without a duration limit
+PASS hold qualification requires continuously valid regulation
+PASS hold manual stop remains stopped
+PASS hold overvoltage shutdown remains latched
+PASS hold source/PG/STAT failures shut down
+PASS hold read failure disables CE and reports incomplete cleanup
+PASS hold permits open real thermistor with fixed TS selected
+PASS hold startup undervoltage times out and disables outputs

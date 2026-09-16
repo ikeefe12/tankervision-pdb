@@ -4,6 +4,11 @@
 
 **Key parts:** U26/U43 TCA9535, powered by `+3V3_SS`
 
+The pin tables below were corrected on 2026-09-14 using a fresh KiCad schematic
+netlist and the saved PCB pad nets. Earlier documentation had several Port 0
+inputs in the wrong order. The input signals pass through 5.1 kΩ series resistors;
+trace across those resistors when checking their unnamed expander-side nets.
+
 Both devices share `CTRL_SDA`/`CTRL_SCL` with R35/R36 2.2 kΩ pull-ups. The final
 schematic connects them to ESP32 IO17/IO18. GPIO35–GPIO37 remain no-connect for the
 N8R8 module's octal PSRAM.
@@ -18,13 +23,13 @@ INT is `CTRL_IN_INT_N` → IO15, pulled up by R77 10 kΩ.
 
 | Pin | Signal | Direction / meaning |
 |---|---|---|
-| P00 | `PG_USB` | input, USB switch PG |
-| P01 | `PG_DC` | input, DC switch PG |
-| P02 | `VCAP_PG` | input, backup switch PG |
+| P00 | `PG_DC` | input, DC switch PG |
+| P01 | `5V_VBUS_PG` | input, unbacked buck PG |
+| P02 | `PG_USB` | input, USB switch PG |
 | P03 | `SCC_PG` | input, charger PG |
 | P04 | `SCC_STAT` | input, charger status |
-| P05 | `24V_VBUS_PG` | input, boost PG |
-| P06 | `5V_VBUS_PG` | input, unbacked buck PG |
+| P05 | `VCAP_PG` | input, backup switch PG |
+| P06 | `24V_VBUS_PG` | input, boost PG |
 | P07 | `5V_SS_PG` | input, backed buck PG |
 | P10 | `24V_VBUS_EN` | output, U5 enable |
 | P11 | `SCC_EN` | output, U11 CE |
@@ -41,11 +46,11 @@ INT is `CTRL_EXT_INT_N` → IO16, pulled up by R137 10 kΩ.
 
 | Pin | Signal | Direction / meaning |
 |---|---|---|
-| P00 | `EXT_VBUS_PG` | U35 VBUS output status input |
-| P01 | `EXT_5V_VBUS_PG` | U36 5 V VBUS output status input |
+| P00 | `JET_ON_FB` | Jetson-state input |
+| P01 | `EXT_5V_SS_PG` | U38 backed 5 V output status input |
 | P02 | `EXT_SS_PG` | U37 backed VBUS output status input |
-| P03 | `EXT_5V_SS_PG` | U38 backed 5 V output status input |
-| P04 | `JET_ON_FB` | Jetson-state input |
+| P03 | `EXT_VBUS_PG` | U35 VBUS output status input |
+| P04 | `EXT_5V_VBUS_PG` | U36 5 V VBUS output status input |
 | P10 | `EXT_5V_VBUS_EN` | U36 5 V VBUS output enable |
 | P11 | `EXT_VBUS_EN` | U35 VBUS output enable |
 | P12 | `EXT_SS_EN` | U37 backed VBUS output enable |

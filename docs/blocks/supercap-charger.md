@@ -50,7 +50,7 @@ close to the stored-energy source.
 
 ## Charge-current selection
 
-U12 defaults low through R79:
+U12 defaults low through R116:
 
 | `SCC_ISET_SW` | Divider from `+3V3_SCC` | Nominal current |
 |---:|---|---:|
@@ -77,11 +77,38 @@ bias and ESP32 IO1 reads the node. An open sensor rises to approximately 2.91 V 
 a short falls near 0 V, so both wiring failures suspend charging while the real path
 is selected. The fixed midpoint is a service mode, not an unattended default.
 
+The BQ24640 temperature-out-of-range qualification delay is 400 ms typical;
+temperature returning to the valid range has a 20 ms typical delay. Keep CE low
+while changing U14, and allow the selected network and fault detector to settle
+before re-enabling it. The tested `setThermistorOverride()` API waits 100 ms after
+selecting the fixed divider and 500 ms after restoring the real sensor, in
+addition to the CE-low decay interval before switching. A 100 ms real-sensor wait
+allowed an approximately 300 ms charging pulse during the no-bank bench test;
+the 500 ms wait removed that pulse on the tested board.
+
+ESP32 IO1 remains connected to the real sensor branch when the override is active.
+It does not measure the selected voltage at U11 TS. See the
+[charger characterization](../../firmware/board_control_test/results/charger-2026-09-14/README.md)
+for unloaded voltage, status, timing, and measurement limits.
+
 ## Enable and status
 
-- `SCC_EN`: U26.P11 → U11 CE, with R116 49.9 kΩ default-low.
-- `SCC_PG_N`: U11 PG → U15 → `SCC_PG`, Q9/D13, U26.P03.
-- `SCC_STAT_N`: U11 STAT → U16 → `SCC_STAT`, Q8/D12, U26.P04.
+- `SCC_EN`: U26.P11 → U11 CE, with R115 49.9 kΩ default-low.
+- `SCC_PG_N`: U11 PG → U15 → `SCC_PG`, Q8/D12, U26.P03.
+- `SCC_STAT_N`: U11 STAT → U16 → `SCC_STAT`, Q9/D13, U26.P04.
+
+Both conditioned signals are active high. `SCC_PG` indicates a valid charger
+input, not that CE is asserted or charging is occurring. It can remain high with
+the boost disabled because L1/D1/D8 pass the input supply through to U11. Evaluate
+`SCC_STAT` over time and alongside CE, thermistor voltage, and bank voltage; a
+blinking D13 is status activity, not proof of successful charging.
+
+With a charged bank and boost off, the passive charger-input voltage can be lower
+than the bank. BQ24640 then sleeps and deasserts PG even when main power has
+returned. The real-bank transfer test observed charger PG low and TS ADC near
+zero during this condition, followed by recovery as bank voltage fell. Use the
+input-switch PG and mux status to assess main return; qualify the thermistor
+after enabling boost and allowing the charger reference to recover.
 
 U26 has no reset pin. An ESP32-only reset can leave CE and profile selection in
 their previous states while `+3V3_SS` remains powered. This retained behavior is an

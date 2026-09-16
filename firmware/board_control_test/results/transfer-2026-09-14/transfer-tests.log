@@ -1,0 +1,1 @@
+PASS 22 transfer supervisor scenarios: real NTC/budget guards, LED threshold, plateau, PG/mux propagation, CE-before-boost shutdown, backup preservation, return, faults and caller-owned cutoff

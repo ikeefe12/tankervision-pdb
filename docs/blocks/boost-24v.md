@@ -24,8 +24,14 @@ gate/current-sense and boost switching loop is still longer than the smallest
 possible evaluation-module-style placement, so scope SW/GATE/CS and verify loss,
 ringing, EMI, and temperature at maximum charger power.
 
-`24V_VBUS_EN` comes from U26.P10 with R115 49.9 kΩ default-low. U5 PGOOD is pulled
-up and conditioned by U6, then drives `24V_VBUS_PG` to U26.P05 and Q2/D2.
+`24V_VBUS_EN` comes from U26.P10 with R114 49.9 kΩ default-low. U5 PGOOD is pulled
+up and conditioned by U6, then drives `24V_VBUS_PG` to U26.P06 and Q2/D2.
+
+Disabling U5 stops switching but does not isolate its output: `+VBUS` still has a
+forward path through L1 and D1 to `+24V`, then through D8 to the charger input.
+Consequently, charger `SCC_PG` can remain asserted while boost enable and boost PG
+are low. Use `24V_VBUS_PG` to check boost regulation, and keep `SCC_EN` low before
+disabling the boost.
 
 The charger is the only intended load. At 1.94 A into a nearly full 20.63 V bank,
 the stage must supply roughly 40 W plus loss. At the minimum valid 18.5 V input,

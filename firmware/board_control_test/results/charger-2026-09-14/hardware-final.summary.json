@@ -1,0 +1,305 @@
+{
+  "source_log": "/Users/iankeefe/Documents/GitHub/led_pcbs/kicad/tankervision-pdb/firmware/board_control_test/results/charger-2026-09-14/hardware-final.log",
+  "sample_bins": 3536,
+  "phase_order": [
+    "real_ce_off",
+    "real_ntc",
+    "real_ntc_shutdown",
+    "real_ce_off_decay",
+    "override_ce_off",
+    "override_low",
+    "override_low_shutdown",
+    "override_off_decay",
+    "override_restart",
+    "override_restart_shutdown",
+    "override_high",
+    "override_high_shutdown",
+    "real_ntc_return",
+    "real_ntc_return_shutdown"
+  ],
+  "target_v": 20.629,
+  "adc_mv_to_vcap_v": 0.0092,
+  "measurement_limitations": "VCAP is estimated from the ESP32 ADC using a 9.2:1 divider; no meter calibration. Each ADC value averages 16 readings; 10 ms bins show their min/max/mean. Sampling starts after the CE setter returns. Analog RC filtering and polling do not resolve switching ripple or peak overshoot. Digital bytes are the latest status read, nominally refreshed every 20 ms.",
+  "units": {
+    "normalized_time_s": "seconds since CE setter returned for this phase; *_shutdown uses the CE-low setter return",
+    "normalized_vcap": "estimated volts at VCAP",
+    "raw_registers": "unsigned decimal bytes (CHARGE_FINAL hex decoded to integers)",
+    "summary_min_max_tail": "estimated VCAP volts; tail is final 2 seconds or entire shorter phase",
+    "summary_count": "ADC 16-reading averages, before 10 ms binning",
+    "summary_first_window_us": "microseconds to first in-window ADC value; -1 means none",
+    "summary_sensor_mv": "millivolts on the real NTC branch, including during TS override",
+    "shutdown_first_last": "estimated VCAP volts after CE-low setter returned",
+    "shutdown_below_1_us": "microseconds after CE-low setter returned until first reading below 1 V; -1 means none"
+  },
+  "phase_settings": [
+    {
+      "phase": "real_ce_off",
+      "duration_ms": 1000,
+      "CE": 0,
+      "TS_OVERRIDE": 0,
+      "ISET_HIGH": 0
+    },
+    {
+      "phase": "real_ntc",
+      "duration_ms": 3000,
+      "CE": 1,
+      "TS_OVERRIDE": 0,
+      "ISET_HIGH": 0
+    },
+    {
+      "phase": "real_ce_off_decay",
+      "duration_ms": 1000,
+      "CE": 0,
+      "TS_OVERRIDE": 0,
+      "ISET_HIGH": 0
+    },
+    {
+      "phase": "override_ce_off",
+      "duration_ms": 500,
+      "CE": 0,
+      "TS_OVERRIDE": 1,
+      "ISET_HIGH": 0
+    },
+    {
+      "phase": "override_low",
+      "duration_ms": 8000,
+      "CE": 1,
+      "TS_OVERRIDE": 1,
+      "ISET_HIGH": 0
+    },
+    {
+      "phase": "override_off_decay",
+      "duration_ms": 3000,
+      "CE": 0,
+      "TS_OVERRIDE": 1,
+      "ISET_HIGH": 0
+    },
+    {
+      "phase": "override_restart",
+      "duration_ms": 4000,
+      "CE": 1,
+      "TS_OVERRIDE": 1,
+      "ISET_HIGH": 0
+    },
+    {
+      "phase": "override_high",
+      "duration_ms": 5000,
+      "CE": 1,
+      "TS_OVERRIDE": 1,
+      "ISET_HIGH": 1
+    },
+    {
+      "phase": "real_ntc_return",
+      "duration_ms": 3000,
+      "CE": 1,
+      "TS_OVERRIDE": 0,
+      "ISET_HIGH": 0
+    }
+  ],
+  "phase_summaries": [
+    {
+      "phase": "real_ce_off",
+      "result": "PASS",
+      "count": 351,
+      "min": 0.0,
+      "max": 0.0,
+      "tail_min": 0.0,
+      "tail_max": 0.0,
+      "tail_mean": 0.0,
+      "stat_edges": 1,
+      "stat_tail_low": 23,
+      "first_window_us": -1,
+      "max_adc_gap_us": 8001,
+      "ce_call_us": 9662,
+      "stop_call_us": 9234,
+      "sensor_mv": 2909
+    },
+    {
+      "phase": "real_ntc",
+      "result": "PASS",
+      "count": 1054,
+      "min": 0.0,
+      "max": 0.6256,
+      "tail_min": 0.6072,
+      "tail_max": 0.6256,
+      "tail_mean": 0.6197,
+      "stat_edges": 3,
+      "stat_tail_low": 48,
+      "first_window_us": -1,
+      "max_adc_gap_us": 8004,
+      "ce_call_us": 9422,
+      "stop_call_us": 9234,
+      "sensor_mv": 2909
+    },
+    {
+      "phase": "real_ce_off_decay",
+      "result": "PASS",
+      "count": 351,
+      "min": 0.0,
+      "max": 0.0,
+      "tail_min": 0.0,
+      "tail_max": 0.0,
+      "tail_mean": 0.0,
+      "stat_edges": 1,
+      "stat_tail_low": 48,
+      "first_window_us": -1,
+      "max_adc_gap_us": 8001,
+      "ce_call_us": 10151,
+      "stop_call_us": 9234,
+      "sensor_mv": 2909
+    },
+    {
+      "phase": "override_ce_off",
+      "result": "PASS",
+      "count": 176,
+      "min": 0.0,
+      "max": 0.0,
+      "tail_min": 0.0,
+      "tail_max": 0.0,
+      "tail_mean": 0.0,
+      "stat_edges": 0,
+      "stat_tail_low": 0,
+      "first_window_us": -1,
+      "max_adc_gap_us": 8001,
+      "ce_call_us": 9940,
+      "stop_call_us": 9234,
+      "sensor_mv": 2909
+    },
+    {
+      "phase": "override_low",
+      "result": "PASS",
+      "count": 2801,
+      "min": 0.0,
+      "max": 20.2492,
+      "tail_min": 20.1756,
+      "tail_max": 20.24,
+      "tail_mean": 20.2289,
+      "stat_edges": 0,
+      "stat_tail_low": 0,
+      "first_window_us": 10561,
+      "max_adc_gap_us": 8001,
+      "ce_call_us": 9724,
+      "stop_call_us": 9234,
+      "sensor_mv": 2909
+    },
+    {
+      "phase": "override_off_decay",
+      "result": "PASS",
+      "count": 1054,
+      "min": 0.0184,
+      "max": 1.3984,
+      "tail_min": 0.0184,
+      "tail_max": 0.598,
+      "tail_mean": 0.2362,
+      "stat_edges": 2,
+      "stat_tail_low": 49,
+      "first_window_us": -1,
+      "max_adc_gap_us": 8004,
+      "ce_call_us": 9860,
+      "stop_call_us": 9234,
+      "sensor_mv": 2909
+    },
+    {
+      "phase": "override_restart",
+      "result": "PASS",
+      "count": 1401,
+      "min": 0.2208,
+      "max": 20.24,
+      "tail_min": 20.1756,
+      "tail_max": 20.24,
+      "tail_mean": 20.2234,
+      "stat_edges": 1,
+      "stat_tail_low": 0,
+      "first_window_us": 10554,
+      "max_adc_gap_us": 8001,
+      "ce_call_us": 9887,
+      "stop_call_us": 9234,
+      "sensor_mv": 2909
+    },
+    {
+      "phase": "override_high",
+      "result": "PASS",
+      "count": 1751,
+      "min": 1.8124,
+      "max": 20.24,
+      "tail_min": 20.1756,
+      "tail_max": 20.24,
+      "tail_mean": 20.2268,
+      "stat_edges": 0,
+      "stat_tail_low": 0,
+      "first_window_us": 8563,
+      "max_adc_gap_us": 8001,
+      "ce_call_us": 9613,
+      "stop_call_us": 9234,
+      "sensor_mv": 2909
+    },
+    {
+      "phase": "real_ntc_return",
+      "result": "PASS",
+      "count": 1051,
+      "min": 0.6164,
+      "max": 0.6532,
+      "tail_min": 0.6164,
+      "tail_max": 0.6256,
+      "tail_mean": 0.6204,
+      "stat_edges": 3,
+      "stat_tail_low": 51,
+      "first_window_us": -1,
+      "max_adc_gap_us": 8001,
+      "ce_call_us": 9881,
+      "stop_call_us": 9233,
+      "sensor_mv": 2908
+    }
+  ],
+  "shutdown_observations": [
+    {
+      "phase": "real_ntc",
+      "first": 0.6256,
+      "last": 0.0,
+      "below_1_us": 796
+    },
+    {
+      "phase": "override_low",
+      "first": 20.0192,
+      "last": 1.564,
+      "below_1_us": -1
+    },
+    {
+      "phase": "override_restart",
+      "first": 20.01,
+      "last": 1.5548,
+      "below_1_us": -1
+    },
+    {
+      "phase": "override_high",
+      "first": 20.01,
+      "last": 1.5364,
+      "below_1_us": -1
+    },
+    {
+      "phase": "real_ntc_return",
+      "first": 0.6164,
+      "last": 0.0736,
+      "below_1_us": 797
+    }
+  ],
+  "final_states": [
+    {
+      "OUT": 0,
+      "PINS": 0,
+      "EOUT": 0,
+      "VCAP": 0.0552,
+      "TS_mV": 2909,
+      "PG": 1,
+      "STAT": 0
+    }
+  ],
+  "results": [
+    {
+      "result": "PASS",
+      "cleanup": "PASS"
+    }
+  ],
+  "faults": [],
+  "has_final_result": true
+}

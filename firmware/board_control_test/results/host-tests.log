@@ -1,0 +1,8 @@
+PASS missing U43 disables retained CE
+PASS missing U26 disables retained exterior outputs
+PASS stuck CE preserves boost/profile
+PASS retained input polarity reconciliation
+PASS schematic input one-hot mapping
+PASS J8 buck prerequisite and shutdown guard
+PASS missing buck PG prevents J8 activation
+PASS CE-before-boost shutdown with decay delay

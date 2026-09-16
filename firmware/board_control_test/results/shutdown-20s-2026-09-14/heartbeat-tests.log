@@ -1,0 +1,1 @@
+PASS heartbeat cadence, loop liveness, no catch-up, millis wrap, stop/restart, GPIO fault recovery

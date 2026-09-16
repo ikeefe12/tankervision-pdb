@@ -1,0 +1,28 @@
+{
+  "captured_at_utc": "2026-09-14T20:09:29.628283+00:00",
+  "mode": "control-next; normal off-at-boot; tests1,2,3,6",
+  "toolchain": {
+    "arduino_cli": "0.35.3",
+    "arduino_esp32": "3.3.3",
+    "esptool": "4.8.6"
+  },
+  "chip": "ESP32-S3 rev0.2 N8R8",
+  "mac": "68:ee:8f:58:b0:10",
+  "sha256": {
+    "BoardControl.h": "8ee3be943cac05a6c2ff3f0ce0d6564a491c1c30ece21296d04265ef1a0147f2",
+    "BoardControl.cpp": "db456eaea8d02144ed5e975a5dbddc3a6442937f4702d2f1a10d9844f7450971",
+    "ChargerHold.h": "fd531f5e5fca2f03a26520e4c65f4c209512db4d53d84a861ab8ef9850b21a95",
+    "ChargerHold.cpp": "e1f77f57cc85eef4bf63f57390fc385ea04706d0010adad66fafa39d74c6d4cc",
+    "ControlDiagnostics.h": "733e626f47f6ffdf5c1507ba66dabdad6bd7fa2ff1263c6874ce5cf27854fb54",
+    "ControlDiagnostics.cpp": "049aac90cd2c954d134a4b86f490b05613e7ba788bf8857c69812fc6427b69a6",
+    "ExpanderInterrupts.h": "cdadabac5fb1f74cfbed86462ee5a4fc35bb819f439ccf6f3793f8c3f5f6cce5",
+    "ExpanderInterrupts.cpp": "cc16fe19cf8d3f3820928c4e203a9c09b5679e385edc7e8925d39b18c5b3c9ae",
+    "PdDiagnostics.h": "8116fb593be4c43548da8acc8551ecbd84b145ef72a30071a7d848d2adf672af",
+    "PdDiagnostics.cpp": "616b6c8d09b23828e62a81d897902130cac870a5e8847441764436b115f9e48c",
+    "TestRunner.cpp": "173555840692440774c8007f2dcbeccc12423b95058abf9d1c1a4fbfdd1306cc",
+    "build.sh": "0492b1a41a35d2764a48a1435f465fa6db75b6cfa93c8f378277a6ba36ebf510",
+    "build/board_control_test.ino.bin": "bd9b03c103279e6c2992eb21717e2e09caecc71d9d5143e176e673810e78b77e",
+    "build/board_control_test.ino.bootloader.bin": "c21086d82fe3ec49ad08467a489c1488d7d1558e788ba78864e8aa024106870a",
+    "build/board_control_test.ino.partitions.bin": "1d9cca96de0fe07ad7fc0648b9878ddecd9ce565e38b589ad20fea698ed4c80c"
+  }
+}

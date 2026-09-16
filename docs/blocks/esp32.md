@@ -16,7 +16,7 @@ in the final schematic.
   protects D+/D− before IO19/IO20. J2 VBUS biases the ESD device but does not power
   the board.
 - J3 exposes RXD0, TXD0, and GND. D17/D18 are PESD3V3 clamps.
-- D9 is the red `+3V3_SS` power LED. IO4 `STAT_LED` drives Q5/D7 green with R34
+- D9 is the red `+3V3_SS` power LED. IO4 `STAT_LED` drives Q5/D7 green with R37
   holding the gate low by default.
 
 Nine analog signals use ADC1-capable IO1–IO3 and IO5–IO10; IO2 receives isolated

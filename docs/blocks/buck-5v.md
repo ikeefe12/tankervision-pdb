@@ -12,8 +12,8 @@ stages use 1.5 µH inductors, 3×22 µF output capacitance, 2×10 µF input capa
 |---|---|---|
 | converter | U1 | U13 |
 | input/output | `+VBUS_SS` → `+5V_SS` | `+VBUS` → `+5V_VBUS` |
-| enable | R1/R6 30 kΩ/10 kΩ self-enable; approximately 5.2 V on | U26.P14 `5V_VBUS_EN`, R114 default-low |
-| PG | U7 → `5V_SS_PG` → U26.P07, Q3/D3 | U18 → `5V_VBUS_PG` → U26.P06, Q10/D16 |
+| enable | R1/R6 30 kΩ/10 kΩ self-enable; approximately 5.2 V on | U26.P14 `5V_VBUS_EN`, R79 default-low |
+| PG | U7 → `5V_SS_PG` → U26.P07, Q3/D3 | U18 → `5V_VBUS_PG` → U26.P01, Q10/D16 |
 
 Validated nominal values:
 

@@ -1,0 +1,1 @@
+PASS 35 transfer supervisor scenarios: real NTC/budget guards, heartbeat independence, plateau, PG/mux propagation, CE-before-boost shutdown, backup preservation, repeated returns, 20 s deadline/cancellation/rollover, faults and caller-owned cutoff

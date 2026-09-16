@@ -61,6 +61,18 @@ drawing coordinates used as the stable way to locate each circuit.
   bucks, LDOs, output switches, the ESP32, I/O expanders, comparators, analog
   switches, the Jetson power button, and ADC monitoring
 
+Firmware and board verification:
+
+- **[firmware/deployment/README.md](firmware/deployment/README.md)** — automatic
+  startup, supercap maintenance charging, 1 Hz USB telemetry and fixed 60-second
+  Jetson shutdown/reboot sequence
+- **[firmware/deployment/API.md](firmware/deployment/API.md)** — Jetson USB API,
+  with a [Python reference client](firmware/deployment/jetson/README.md)
+- **[firmware/deployment/results/upload-2026-09-16/README.md](firmware/deployment/results/upload-2026-09-16/README.md)**
+  — verified deployment upload, charging/PG observations and serial reopen results
+- **[firmware/board_control_test/README.md](firmware/board_control_test/README.md)**
+  — reusable board drivers, bench procedures and historical test results
+
 Generated exports for quick reading without KiCad:
 
 - [docs/exports/tankervision-pdb-schematic.pdf](docs/exports/tankervision-pdb-schematic.pdf)
@@ -74,6 +86,8 @@ libraries/symbols/           custom symbol libraries (.kicad_sym)
 libraries/footprints/        custom footprint libraries (.pretty)
 libraries/3dmodels/          custom 3D models referenced by those footprints
 docs/                        design documentation, generated exports and renders
+firmware/deployment/         ESP32 deployment firmware, Jetson API/client and tests
+firmware/board_control_test/  hardware bench firmware, procedures and captured results
 manufacturing/rev-1_0/       as-ordered JLCPCB fabrication and assembly package
 ```
 
@@ -82,7 +96,7 @@ manufacturing/rev-1_0/       as-ordered JLCPCB fabrication and assembly package
 Requires **KiCad 9.0** or newer.
 
 ```sh
-git clone https://github.com/iankeefe/tankervision-pdb.git
+git clone https://github.com/ikeefe12/tankervision-pdb.git
 cd tankervision-pdb
 kicad hardware/tankervision-pdb/tankervision-pdb.kicad_pro
 ```
@@ -95,11 +109,13 @@ models come from the stock KiCad libraries installed with KiCad.
 ## Design state
 
 Revision 1.0 was ordered from JLCPCB on 2026-08-24. The CAD review finds no
-remaining electrical schematic blocker, but the bench and integration checks listed
-in [docs/issues.md](docs/issues.md) — source hot-plug, mux failover under load,
-charger sequencing, thermal validation of the 3.3 V LDO, and the output-switch
-overload cases — are still outstanding. Treat this as a reviewed design rather than
-a bench-proven one.
+remaining electrical schematic blocker. The firmware records now include successful
+converter/port control checks, real-bank charging and backup intervals, and the
+first deployment upload with 1 Hz telemetry and same-boot serial reopen on the Mac.
+The remaining integration checks in [docs/issues.md](docs/issues.md) include loaded
+Jetson shutdown and backup endurance, source hot-plug, thermal validation of the
+3.3 V LDO, and output-switch overload cases. The recorded unloaded and MCU-only
+checks do not establish those loaded behaviors.
 
 Verification on the current sources with KiCad 9.0.7:
 

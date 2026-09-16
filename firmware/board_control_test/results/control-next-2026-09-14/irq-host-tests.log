@@ -1,0 +1,8 @@
+PASS internal/external edge isolation and timestamp capture
+PASS asserted line observed released after successful input read
+PASS short pulse remains pending until acknowledged
+PASS failed read preserves pending event and caller status
+PASS event during acknowledge retained for subsequent service
+PASS initially asserted input flagged without invented falling edge
+PASS scoped monitor detaches handlers before destruction
+7 expander interrupt host tests passed

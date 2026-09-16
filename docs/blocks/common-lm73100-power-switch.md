@@ -41,13 +41,13 @@ IMON/ADC node; do not infer precise low-current measurements.
 
 | Ref | Label | Input → output | Enable | IMON / ESP32 | PG destination |
 |---|---|---|---|---|---|
-| U22 | `USBC INRUSH CTRL` | `+VBUS_USB` → `+VBUS` | U4 `VBUS_USB_EN` | R122 / IO9 | U27 → U26.P00 |
-| U23 | `DC INRUSH CTRL` | `+VBUS_DC` → `+VBUS` | resistor UVLO | R124 / IO3 | U28 → U26.P01 |
-| U24 | `SUPER CAP SWITCH` | `+VCAP` → `+VCAP_VALID` | ESP32 IO42 | R127 / IO10 | U29 → U26.P02 |
-| U35 | `VBUS POWER SWITCH` | `+VBUS` → J7 | U43.P11 | R180 / IO6 | U45 → U43.P00 |
-| U36 | `5V VBUS POWER SWITCH` | `+5V_VBUS` → J8 | U43.P10 | R177 / IO5 | U44 → U43.P01 |
+| U22 | `USBC INRUSH CTRL` | `+VBUS_USB` → `+VBUS` | U4 `VBUS_USB_EN` | R122 / IO9 | U27 → U26.P02 |
+| U23 | `DC INRUSH CTRL` | `+VBUS_DC` → `+VBUS` | resistor UVLO | R124 / IO3 | U28 → U26.P00 |
+| U24 | `SUPER CAP SWITCH` | `+VCAP` → `+VCAP_VALID` | ESP32 IO42 | R127 / IO10 | U29 → U26.P05 |
+| U35 | `VBUS POWER SWITCH` | `+VBUS` → J7 | U43.P11 | R180 / IO6 | U45 → U43.P03 |
+| U36 | `5V VBUS POWER SWITCH` | `+5V_VBUS` → J8 | U43.P10 | R177 / IO5 | U44 → U43.P04 |
 | U37 | `SS POWER SWITCH` | `+VBUS_SS` → J9 | U43.P12 | R187 / IO7 | U46 → U43.P02 |
-| U38 | `5V SS POWER SWITCH` | `+5V_SS` → J10 | U43.P13 | R181 / IO8 | U47 → U43.P03 |
+| U38 | `5V SS POWER SWITCH` | `+5V_SS` → J10 | U43.P13 | R181 / IO8 | U47 → U43.P01 |
 
 Input/output TVS parts protect all four external ports. Reverse blocking is what
 makes U22/U23 ORing and output-port backfeed protection work. The 100 kΩ PG

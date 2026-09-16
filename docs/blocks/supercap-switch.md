@@ -11,7 +11,7 @@ asserts `VCAP_EN`. R38 49.9 kΩ holds the path off during reset or brownout.
   capacitance rather than the former 100 µF bulk. CN1 connects the external bank.
 - R85/R96 = 487 kΩ/27 kΩ set 22.84/20.75 V OVLO.
 - R87/R94 = 82 kΩ/30 kΩ set 4.48/4.07 V PGTH. U29, powered by
-  `+3V3_VCAP`, produces `VCAP_PG` for U26.P02 and Q14/D24.
+  `+3V3_VCAP`, produces `VCAP_PG` for U26.P05 and Q14/D24.
 - C99 4.7 nF provides the controlled output ramp, annotated at approximately 47 ms
   for the stated load-capacitance condition.
 - R127 is the IMON load; D28/R110/C61 feed `VIMON_SC` to ESP32 IO10.

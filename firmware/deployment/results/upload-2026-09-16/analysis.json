@@ -1,0 +1,91 @@
+{
+  "verified_utc": "2026-09-16T15:22:40.673960+00:00",
+  "boot_id": "0E44CE37",
+  "captures": [
+    {
+      "file": "telemetry.jsonl",
+      "frames": 146,
+      "telemetry_samples": 111,
+      "first_uptime_ms": 30695,
+      "last_uptime_ms": 140045,
+      "periodic_samples": 110,
+      "periodic_interval_ms": 1000,
+      "drop_count_start": 33,
+      "drop_count_end": 33,
+      "running_samples": 31
+    },
+    {
+      "file": "reopen-telemetry.jsonl",
+      "frames": 94,
+      "telemetry_samples": 47,
+      "first_uptime_ms": 151516,
+      "last_uptime_ms": 197045,
+      "periodic_samples": 46,
+      "periodic_interval_ms": 1000,
+      "drop_count_start": 50,
+      "drop_count_end": 50,
+      "running_samples": 47
+    }
+  ],
+  "first_vcap_v": 6.7988,
+  "final_vcap_v": 20.47,
+  "final_ts_mv": 1816,
+  "final_state": "RUNNING",
+  "final_reset_reason": 11,
+  "no_reset_across_reopen": true,
+  "issues": [],
+  "max_loop_gap_ms": 26,
+  "final_jetson": {
+    "port_enabled": true,
+    "responsive": true,
+    "pong_seen": true,
+    "last_pong_age_ms": 1874,
+    "ping_id": 44,
+    "on_feedback": false
+  },
+  "final_pd": {
+    "valid": true,
+    "age_ms": 0,
+    "device_mode": 149,
+    "silicon_id": 8196,
+    "status": 369664,
+    "type_c_status": 137,
+    "pdo": 410100,
+    "rdo": 1082437932,
+    "response": 2,
+    "interrupt_status": 3,
+    "attached": true,
+    "millivolts": 20000,
+    "source_ma": 5000,
+    "operating_ma": 3000,
+    "maximum_ma": 3000,
+    "versions": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      244,
+      6,
+      0,
+      51,
+      114,
+      98,
+      0,
+      69
+    ]
+  },
+  "final_charger": {
+    "enabled_expected": true,
+    "maintenance": true
+  },
+  "final_ports": {
+    "vbus": false,
+    "5v_vbus": false,
+    "vbus_ss": true,
+    "5v_ss": false
+  }
+}

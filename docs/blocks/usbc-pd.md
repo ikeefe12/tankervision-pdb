@@ -16,7 +16,10 @@ default 5 V; U22 remains off until U4 validates U8's gate state.
 - D4/D5 protect CC1/CC2; U8 supplies the sink terminations.
 - U8's internal 3.3 V output is `+3V3_PDC`, present only with USB VBUS.
 - `ISNK_COARSE` and `ISNK_FINE` are grounded. U8 accepts any advertised source
-  current; firmware must read the PDO/RDO and enforce the board power budget.
+  current as meeting its zero-current selection threshold, and requests **0 A
+  operating current**. This does not automatically request the source PDO's full
+  current. Firmware must read the PDO/RDO, establish the intended current request,
+  and enforce the board power budget.
 - HPI address is 0x08 on `PD_SDA`/`PD_SCL`; `PD_INT` reaches ESP32 IO39.
 - FAULT drives Q7/D6. D+/D−, GPIO1, and SAFE_PWR_EN are unused.
 
@@ -24,6 +27,25 @@ The controller negotiates voltage autonomously but does not limit total downstre
 load current. A 20 V contract can still provide less power than the high-current
 charger plus enabled outputs require; 5 A operation also requires the appropriate
 e-marked cable.
+
+The 2026-09-14 HPI bench read found source PDO `0x000641D6` (**20 V / 4.7 A**)
+and RDO `0x4080000A` (**0 A operating, 0.1 A maximum**, object 4). Communication
+and repeated data were stable. The zero operating field agrees with the grounded
+pins; the origin of the 0.1 A maximum field remains unverified. Do not treat the
+source's advertised 94 W ceiling as a validated board power budget. The unloaded
+control test made no PD configuration changes. Infineon's
+[CY4533 guide, section 2.4](https://www.infineon.com/assets/row/public/documents/24/44/infineon-cy4533-ez-pd-barrel-connector-replacement-evk-guide-usermanual-en.pdf)
+specifies that the RDO operating current follows ISNK_COARSE + ISNK_FINE.
+
+The later real-bank charging test successfully programmed a volatile sink profile
+through HPI and verified **20 V / 2 A operating and maximum current**, RDO
+`0x408320C8`, stable for 503 ms before enabling the charger. The source PDO stayed
+`0x000641D6`; HPI response was `0x02` (success). This establishes a 40 W requested
+allowance for the low-current charger and unloaded board, not a measured current
+or blanket approval for external loads. The profile must be revalidated after
+PD-controller power loss. See the
+[transfer procedure](../../firmware/board_control_test/TRANSFER-TEST.md) and
+[command references](../../firmware/board_control_test/PD-REFERENCES.md).
 
 ## Contract-gate conversion
 

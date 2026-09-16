@@ -1,5 +1,154 @@
 # Issues, Accepted Constraints, and Release Checks
 
+## Deployment firmware development — 2026-09-16
+
+The separate [deployment firmware](../firmware/deployment/README.md) implements
+automatic startup, 1 Hz complete USB telemetry, charger maintenance, Jetson port
+control, and a fixed 60-second shutdown allowance. Main return cannot cancel this
+shutdown. It defaults both expanders before releasing backup and restarts if
+power remains. D7 is solid during the initial 10 seconds and a heartbeat afterward.
+The [Jetson API](../firmware/deployment/API.md) and reference client document
+pings, shutdown acknowledgment/readiness, optional-port commands and full reboot.
+
+The deployment build uses software USB CDC with reboot hooks disabled before
+enumeration. The [first deployment upload and telemetry check](../firmware/deployment/results/upload-2026-09-16/README.md)
+passed flash verification and received 158 telemetry snapshots: a verified 20 V/3 A
+contract, real-temperature charging to 20.47 V ADC, maintenance enabled, backup
+armed, J9 enabled with PG, and no reported issues. Closing/reopening serial on the
+Mac preserved boot ID and increasing uptime. Loaded Jetson shutdown and USB
+behavior on the Jetson still require integration testing. Earlier bench results
+below apply to their named test firmware, not this deployment build.
+
+## Historical transfer-test policy — 2026-09-14
+
+The transfer test firmware waits **20 seconds after detected main-power loss**.
+Valid main return cancels shutdown; otherwise it records `MAIN_TIMEOUT_20S` and
+deasserts GPIO42, disconnecting the board from the still partly charged bank.
+The existing 7 V low-energy cutoff can act sooner. D7 is now a 1 Hz loop-driven
+MCU heartbeat, independent of capacitor voltage. The 10 V backup-arming threshold
+remains. The voltage-indicator and long-backup observations below describe older
+test versions. See the
+[current procedure](../firmware/board_control_test/TRANSFER-TEST.md).
+
+Bench validation passed: return after 6.700 s cancelled shutdown; the next loss
+produced the timeout marker after **20.003 s**, then GPIO42 release and board
+power loss. VCAP was 20.3136 V ADC at cutoff and still 19.964 V ADC after main
+restoration. The stored `MAIN_TIMEOUT_20S` checkpoint survived; all controlled
+outputs were off and D7 resumed its heartbeat. USB telemetry needed a J2 data
+reconnection after the deliberate power cycle. See the
+[20-second test report](../firmware/board_control_test/results/shutdown-20s-2026-09-14/README.md).
+
+## Firmware pin-map correction — 2026-09-14
+
+A fresh schematic XML netlist and saved-PCB pad-net comparison found that the
+documentation accompanying the 2026-08-24 review listed several U26/U43 Port 0
+inputs in the wrong order. The corrected tables in
+[io-expanders.md](blocks/io-expanders.md) now follow the electrical connections
+through their series resistors. The output-enable and ESP32 GPIO assignments were
+correct. Related block documentation now also uses the actual charger LED mapping
+(`SCC_PG` → Q8/D12; `SCC_STAT` → Q9/D13) and enable-pulldown references. D9 is
+the `+3V3_SS` power LED; D7 is the GPIO4-controlled green status LED.
+
+This check compared 1,366 named PCB pads with the exported schematic; net names
+agree after normalizing KiCad's slash escaping. It did not rerun ERC or DRC and
+does not establish bench functionality. The ERC/DRC results below remain the
+historical 2026-08-24 results.
+
+## Initial firmware bench results — 2026-09-14
+
+The connected ESP32 completed 53 converter/output-control checks with no failures:
+boost, unbacked 5 V buck, and all four exterior port PGs asserted/deasserted as
+expected, including the J8 upstream-buck dependency. Charger CE high/low pin
+readback and input PG also passed with the real thermistor path left selected and
+TS reading approximately 2.91 V. The latter test does not validate charging current.
+
+During that open-TS test, the VCAP ADC estimate rose from 0 V to about 0.62 V and
+fell after CE was cleared. Its cause remains unverified; compare against a DMM or
+scope before judging charger leakage or ADC accuracy. Charging under load and
+backup transfer remain outstanding. See the
+[bench report and raw logs](../firmware/board_control_test/results/2026-09-14.md)
+and [full test set](../firmware/board_control_test/README.md).
+
+## Charger bypass and unloaded regulation — 2026-09-14
+
+With the external supercap confirmed disconnected, the fixed-TS bypass allowed
+steady unloaded operation: ESP32 VCAP estimates were about 20.229 V at the low
+current selection, 20.223 V after restart, and 20.227 V at the high selection.
+STAT remained high and charger/boost PG remained asserted. Selecting the real
+open-sensor branch gave about 0.62 V and blinking STAT.
+
+A first return-to-real-sensor test re-enabled CE only 100 ms after changing TS and
+produced an approximately 300 ms high-voltage pulse before temperature inhibition.
+The BQ24640 specifies 400 ms typical temperature-out-of-range qualification.
+`setThermistorOverride(false)` now waits 500 ms with CE low; retesting kept the
+entire restored-real-sensor capture below 0.654 V. The bypass direction waits
+100 ms. All 15 driver host tests pass, including these timing guarantees.
+
+During the subsequent unloaded, low-current hold with fixed-TS bypass, the user
+measured **20.67 V with a multimeter**, approximately **0.041 V / 0.20% above the
+20.629 V schematic target**. This supports correct regulation at this operating
+point and resolves the apparent low-output concern. The approximately 20.23 V
+ADC estimate is **0.44 V / 2.1% low relative to the meter**; ADC/divider calibration
+and verification remain outstanding. This high-rail measurement does not resolve
+the separate 0.62 V inhibited-state observation. Loaded charge current and switching
+ripple also remain untested. See the
+[meter hold report](../firmware/board_control_test/results/hold-2026-09-14/README.md) and
+[charger report, traces, and raw logs](../firmware/board_control_test/results/charger-2026-09-14/README.md).
+
+## Additional ESP32 control tests — 2026-09-14
+
+With no loads or supercap connected, the charger maintained VCAP while GPIO42
+cycled the backup switch three times. Backup PG rose/fell on each command and the
+mux remained on main power. Both expander interrupt connections passed: 18 PG
+transitions produced falling/rising edges on the expected GPIO15/GPIO16 line.
+Three backup-off checks observed INT low before reading inputs, the expected
+changed PG bit, and INT high after the read. This establishes backup-switch control
+and interrupt delivery; source-loss transfer was not attempted.
+
+GPIO4 high/low readback passed for three D7 pulses, and the user confirmed visible
+status-LED blinking during the requested repeat run. All controlled outputs finished off. No current ADC
+channels were read.
+
+PD HPI communications worked at 0x08 on GPIO40/41. The active source PDO advertised
+**20 V / 4.7 A (94 W)**, but RDO `0x4080000A` reported **0 A operating current and
+0.1 A maximum**. The grounded ISNK pins explain the zero operating request; the
+source PDO ceiling is not a validated requested power budget. A later real-bank
+charge test resolved the request for its low-current setup: the verified HPI sink
+profile changed the active RDO to `0x408320C8` (**20 V, 2 A operating/maximum**),
+stable for 503 ms before CE high. The setting is volatile and needs revalidation
+after PD power loss; external-load budgets remain untested. GPIO39 was low with HPI
+`INTERRUPT=0x01`; generated-event delivery and acknowledgment remain untested.
+See the [test report](../firmware/board_control_test/results/control-next-2026-09-14/README.md)
+and [PD configuration notes](blocks/usbc-pd.md).
+
+## Real-bank charging and backup observation — 2026-09-14
+
+With the user's 21.6 V bank and temperature resistor connected, the dedicated
+transfer firmware charged with real TS selected and low ISET. It first verified
+a 20 V/2 A active PD request. D7 turned on above 10 V ADC and GPIO42 armed the
+backup switch with PG confirmation. A stable 20.46 V ADC plateau corresponded to
+the user's **20.67 V** meter reading, close to the 20.629 V design target.
+
+Removing main power produced GPIO11 transitions, USB PG low and backup selection.
+The ESP32 maintained the same session and continuous uptime through **20.790 s**
+of confirmed backup operation; backup PG and backed 5 V PG stayed high in all 21
+backup heartbeats. Firmware lowered charger CE, then boost, while retaining
+GPIO42. Main/USB indications subsequently returned high and charging stayed off.
+A second loss produced **49 consecutive backup heartbeats spanning 48.046 s**,
+again without reset, followed by another main-power return. The second interval
+exposed a one-shot reporting bug (`RETURNED` label and old duration despite correct
+raw PG inputs). Per-episode state/timing/reporting now resets on every loss, with
+25 supervisor regression scenarios passing. The second interval's continuity is
+verified from raw PG and uptime; the initial firmware did not emit its automatic
+30-second marker on that repeated loss.
+
+No current ADC channels were read. This supports observed unloaded backup
+continuity with no detected reset/brownout, not measured rail droop or loaded
+transfer performance. See the
+[capture and report](../firmware/board_control_test/results/transfer-2026-09-14/README.md).
+
+## Previous CAD verification — 2026-08-24
+
 Verified 2026-08-24 against the current schematic and completed PCB with KiCad
 9.0.7, fresh ERC, parity-aware PCB DRC, and a targeted audit of the normally ignored
 silkscreen checks. ERC reports **0 errors and 0 warnings**. PCB DRC reports **0

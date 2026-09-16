@@ -60,19 +60,19 @@ logic margin.
 | Ref | Raw input | Output / destination | Meaning when high |
 |---|---|---|---|
 | U4 | `+VBUS_USB/21` on +; `VBUS_FET_EN/11` on − | `VBUS_USB_EN` → U22 EN | U8 gate signal active/low |
-| U6 | U5 PGOOD on + | `24V_VBUS_PG` → U26.P05 | boost good |
+| U6 | U5 PGOOD on + | `24V_VBUS_PG` → U26.P06 | boost good |
 | U7 | U1 PG on + | `5V_SS_PG` → U26.P07 | backed buck good |
 | U15 | 1.5 V on +; U11 active-low PG on − | `SCC_PG` → U26.P03 | charger input good |
 | U16 | 1.5 V on +; U11 active-low STAT on − | `SCC_STAT` → U26.P04 | STAT sinking; blink polarity inverted |
-| U18 | U13 PG on + | `5V_VBUS_PG` → U26.P06 | unbacked buck good |
-| U27 | U22 PG on + | `PG_USB` → U26.P00 | USB switch good while powered |
-| U28 | U23 PG on + | `PG_DC` → U26.P01 | DC switch good while powered |
-| U29 | U24 PG on + | `VCAP_PG` → U26.P02 | backup switch output above PGTH |
+| U18 | U13 PG on + | `5V_VBUS_PG` → U26.P01 | unbacked buck good |
+| U27 | U22 PG on + | `PG_USB` → U26.P02 | USB switch good while powered |
+| U28 | U23 PG on + | `PG_DC` → U26.P00 | DC switch good while powered |
+| U29 | U24 PG on + | `VCAP_PG` → U26.P05 | backup switch output above PGTH |
 | U30 | U19 ST on + | `PMUX_ST` → IO11/U25 | IN1 selected or mux output Hi-Z |
-| U44 | U36 PG on + | `EXT_5V_VBUS_PG` → U43.P01 | 5 V VBUS port good |
-| U45 | U35 PG on + | `EXT_VBUS_PG` → U43.P00 | VBUS port good |
+| U44 | U36 PG on + | `EXT_5V_VBUS_PG` → U43.P04 | 5 V VBUS port good |
+| U45 | U35 PG on + | `EXT_VBUS_PG` → U43.P03 | VBUS port good |
 | U46 | U37 PG on + | `EXT_SS_PG` → U43.P02 | SS port good |
-| U47 | U38 PG on + | `EXT_5V_SS_PG` → U43.P03 | 5 V SS port good |
+| U47 | U38 PG on + | `EXT_5V_SS_PG` → U43.P01 | 5 V SS port good |
 
 `PMUX_ST` high is not uniquely "VBUS present": U19 also reports high when its
 output is Hi-Z. Firmware must combine it with input and PG information.

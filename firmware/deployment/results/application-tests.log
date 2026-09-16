@@ -1,0 +1,6 @@
+Application scenario loss passed (210880 output bytes)
+Application scenario reboot passed (211052 output bytes)
+Application scenario reconnect passed (58506 output bytes)
+JSON validated: loss.jsonl: 157 frames, 75 telemetry snapshots
+JSON validated: reboot.jsonl: 158 frames, 75 telemetry snapshots
+JSON validated: reconnect.jsonl: 41 frames, 22 telemetry snapshots

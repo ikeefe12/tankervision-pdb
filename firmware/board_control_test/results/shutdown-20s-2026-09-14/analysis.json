@@ -1,0 +1,43 @@
+{
+  "session_ids": [
+    "351DAA24"
+  ],
+  "loss_episodes": [
+    {
+      "session": "351DAA24",
+      "cycle": "1",
+      "loss_ms": "33406",
+      "grace_ms": "20000"
+    },
+    {
+      "session": "351DAA24",
+      "cycle": "2",
+      "loss_ms": "53429",
+      "grace_ms": "20000"
+    }
+  ],
+  "main_returns": [
+    {
+      "t": "40106",
+      "backup_ms": "6625",
+      "shutdown_cancelled": "1",
+      "charging": "OFF"
+    }
+  ],
+  "shutdown": [
+    {
+      "reason": "MAIN_TIMEOUT",
+      "session": "351DAA24",
+      "t": "73432",
+      "VCAP": "20.3136",
+      "status_valid": "1",
+      "loss_elapsed_ms": "20003",
+      "backup_ms": "19935"
+    }
+  ],
+  "timeout_marker_after_detected_loss_ms": 20003,
+  "led_verified_transitions": 143,
+  "expected_power_off": true,
+  "brownout_after_intentional_cut": true,
+  "sequence_gaps": []
+}

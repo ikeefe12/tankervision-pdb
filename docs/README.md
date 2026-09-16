@@ -26,6 +26,17 @@ TCA9535 expanders.
 The intended loss-of-input behavior is a short TPS2121 switchover to the supercap,
 followed by firmware-controlled load shedding and an orderly Jetson shutdown.
 
+## Firmware
+
+The [deployment firmware](../firmware/deployment/README.md) implements automatic
+charging and maintenance, complete 1 Hz USB telemetry, and Jetson startup and
+shutdown coordination. See the [USB API](../firmware/deployment/API.md),
+[Jetson reference client](../firmware/deployment/jetson/README.md), and
+[deployment upload results](../firmware/deployment/results/upload-2026-09-16/README.md).
+The separate [board-control bench firmware](../firmware/board_control_test/README.md)
+contains the earlier hardware test procedures and evidence. KiCad sources are in
+`hardware/tankervision-pdb/` in this standalone repository.
+
 ## Block index
 
 Schematic labels, rather than drawing coordinates, are the stable way to find each

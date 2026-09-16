@@ -1,0 +1,41 @@
+UTC 2026-09-14T22:01:31.649675+00:00 port=/dev/cu.usbmodem2101 command=status
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x9 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40378e4a
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x116c
+load:0x403c8700,len:0xc2c
+load:0x403cb700,len:0x3108
+entry 0x403c88b8
+BOOT session=6BB58936 reset=USB(11) prior_session=351DAA24 prior_phase=MAIN_TIMEOUT_20S prior_uptime_ms=73432 init=1 error=
+RETAINED 0x20 input=84/00 output=00/00 polarity=00/00 config=FF/E0
+RETAINED 0x21 input=00/00 output=00/00 polarity=00/00 config=FF/E0
+SAFE baseline: CE, boost, unbacked buck, external switches, backup, button and status LED off; real NTC, low charge current.
+CONFIG target_V=20.629 bank_rating_V=21.6 override=0 ISET_HIGH=0 LED=heartbeat LED_period_ms=1000 main_loss_timeout_ms=20000 arm_V=10 cutoff_V=7 ADC_trip_V=21.0 auto_start=0
+LED_HEARTBEAT t=626 level=1 transitions=1
+COMMAND status
+BOOT session=6BB58936 reset=USB(11) prior_session=351DAA24 prior_phase=MAIN_TIMEOUT_20S prior_uptime_ms=73432 init=1 error=
+RETAINED 0x20 input=84/00 output=00/00 polarity=00/00 config=FF/E0
+RETAINED 0x21 input=00/00 output=00/00 polarity=00/00 config=FF/E0
+SAFE baseline: CE, boost, unbacked buck, external switches, backup, button and status LED off; real NTC, low charge current.
+CONFIG target_V=20.629 bank_rating_V=21.6 override=0 ISET_HIGH=0 LED=heartbeat LED_period_ms=1000 main_loss_timeout_ms=20000 arm_V=10 cutoff_V=7 ADC_trip_V=21.0 auto_start=0
+HEARTBEAT session=6BB58936 seq=1 t=909 uptime_us=909855 state=STOPPED VCAP=19.9640 TS_mV=0 IN=0x84 OUT=0x00 EOUT=0x00 MAIN=1 USB=1 DC=0 CAP=0 SS=1 BOOST=0 CHG_PG=0 STAT=0 EN42=0 LED=1 samples=0 max_gap_ms=0 edges=1 backup_ms=0 dropped_bytes=0 cycle=0 loss_ms=0 shutdown_in_ms=0
+MUX_EDGE session=6BB58936 t=907 level=1 edges=1 falls=0 rises=1
+HEARTBEAT session=6BB58936 seq=2 t=1006 uptime_us=1006448 state=STOPPED VCAP=19.9732 TS_mV=0 IN=0x84 OUT=0x00 EOUT=0x00 MAIN=1 USB=1 DC=0 CAP=0 SS=1 BOOST=0 CHG_PG=0 STAT=0 EN42=0 LED=1 samples=0 max_gap_ms=0 edges=1 backup_ms=0 dropped_bytes=0 cycle=0 loss_ms=0 shutdown_in_ms=0
+LED_HEARTBEAT t=1126 level=0 transitions=2
+LED_HEARTBEAT t=1626 level=1 transitions=3
+HEARTBEAT session=6BB58936 seq=3 t=2006 uptime_us=2006416 state=STOPPED VCAP=19.9732 TS_mV=0 IN=0x84 OUT=0x00 EOUT=0x00 MAIN=1 USB=1 DC=0 CAP=0 SS=1 BOOST=0 CHG_PG=0 STAT=0 EN42=0 LED=1 samples=0 max_gap_ms=0 edges=1 backup_ms=0 dropped_bytes=0 cycle=0 loss_ms=0 shutdown_in_ms=0
+LED_HEARTBEAT t=2127 level=0 transitions=4
+LED_HEARTBEAT t=2627 level=1 transitions=5
+HEARTBEAT session=6BB58936 seq=4 t=3007 uptime_us=3007413 state=STOPPED VCAP=19.9640 TS_mV=0 IN=0x84 OUT=0x00 EOUT=0x00 MAIN=1 USB=1 DC=0 CAP=0 SS=1 BOOST=0 CHG_PG=0 STAT=0 EN42=0 LED=1 samples=0 max_gap_ms=0 edges=1 backup_ms=0 dropped_bytes=0 cycle=0 loss_ms=0 shutdown_in_ms=0
+LED_HEARTBEAT t=3128 level=0 transitions=6
+LED_HEARTBEAT t=3628 level=1 transitions=7
+HEARTBEAT session=6BB58936 seq=5 t=4008 uptime_us=4008417 state=STOPPED VCAP=19.9640 TS_mV=0 IN=0x84 OUT=0x00 EOUT=0x00 MAIN=1 USB=1 DC=0 CAP=0 SS=1 BOOST=0 CHG_PG=0 STAT=0 EN42=0 LED=1 samples=0 max_gap_ms=0 edges=1 backup_ms=0 dropped_bytes=0 cycle=0 loss_ms=0 shutdown_in_ms=0
+LED_HEARTBEAT t=4129 level=0 transitions=8
+LED_HEARTBEAT t=4629 level=1 transitions=9
+HEARTBEAT session=6BB58936 seq=6 t=5009 uptime_us=5009413 state=STOPPED VCAP=19.9732 TS_mV=0 IN=0x84 OUT=0x00 EOUT=0x00 MAIN=1 USB=1 DC=0 CAP=0 SS=1 BOOST=0 CHG_PG=0 STAT=0 EN42=0 LED=1 samples=0 max_gap_ms=0 edges=1 backup_ms=0 dropped_bytes=0 cycle=0 loss_ms=0 shutdown_in_ms=0
+LED_HEARTBEAT t=5129 level=0 transitions=10
+LED_HEARTBEAT t=5629 level=1 transitions=11
+H

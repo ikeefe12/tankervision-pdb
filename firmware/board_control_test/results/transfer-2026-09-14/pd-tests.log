@@ -1,0 +1,2 @@
+PASS PD transport/read-only pointers, decoding, short/NACK isolation, identity/contract bounds, IRQ mismatch, GiveBack and ISR lifetime
+PASS PD current request: exact wire payload/mask, stable active RDO, adequate-contract no-write path, stale response timeout, argument/source budget and NACK guards
